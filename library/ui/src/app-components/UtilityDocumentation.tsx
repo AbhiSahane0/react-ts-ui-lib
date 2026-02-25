@@ -1,14 +1,13 @@
-/* eslint-disable react-refresh/only-export-components */
-//@@viewOn:imports
+//!#Imports: start
 import React from "react";
 import Block from "../basic-components/Block";
 import { getColorScheme, getBorderColor } from "../tools/colors";
-//@@viewOff:imports
+//!#Imports: end
 
-//@@viewOn:constants
-//@@viewOff:constants
+//!#Constants: start
+//!#Constants: end
 
-//@@viewOn:css
+//!#Styles: start
 const getCss = (darkMode: boolean = true) => {
   const borderColor = getBorderColor(darkMode);
   const textScheme = getColorScheme("text", darkMode);
@@ -49,9 +48,9 @@ const getCss = (darkMode: boolean = true) => {
     } as React.CSSProperties,
   };
 };
-//@@viewOff:css
+//!#Styles: end
 
-//@@viewOn:helpers
+//!#helpers: start
 export type UtilityParameter = {
   name: string;
   description?: string;
@@ -63,9 +62,9 @@ export type UsageExample = {
   title?: string;
   code: string;
 };
-//@@viewOff:helpers
+//!#helpers: end
 
-//@@viewOn:propTypes
+//!#propTypes: start
 export const UtilityDocumentationTypeScheme = {
   title: {
     name: "title",
@@ -136,7 +135,7 @@ export const UtilityDocumentationTypeScheme = {
 export type UtilityDocumentationProps = {
   [K in keyof typeof UtilityDocumentationTypeScheme]?: (typeof UtilityDocumentationTypeScheme)[K]["type"];
 };
-//@@viewOff:propTypes
+//!#propTypes: end
 
 const UtilityDocumentation = ({
   title,
@@ -153,10 +152,8 @@ const UtilityDocumentation = ({
   usageTitle = "Usage Examples",
   darkMode = true,
 }: UtilityDocumentationProps) => {
-  //@@viewOn:private
-  //@@viewOff:private
-
-  //@@viewOn:render
+  //!#visualComponent: start
+  //!#render components: start
   const Css = getCss(darkMode);
 
   return (
@@ -218,10 +215,11 @@ const UtilityDocumentation = ({
       )}
     </div>
   );
-  //@@viewOff:render
+  //!#render components: end
+  //!#visualComponent: end
 };
 
-//@@viewOn:exports
+//!#export: start
 export { UtilityDocumentation };
 export default UtilityDocumentation;
-//@@viewOff:exports
+//!#export: end

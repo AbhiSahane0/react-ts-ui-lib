@@ -1,10 +1,22 @@
-//@@viewOn:imports
+//!#Imports: start
 import { Documentation, BUTTON_PROP_NAMES, Button } from "@react-ts-ui-lib/ui";
 import { useTranslation } from "../../i18n/useTranslation";
 import { getPropsWithTranslations } from "../../i18n/getPropsWithTranslations";
 import { useTheme } from "../../app/context/ThemeContext";
 import DocSeo from "../../app/DocSeo";
-//@@viewOff:imports
+//!#Imports: end
+
+//!#Constants: start
+//!#Constants: end
+
+//!#Styles: start
+//!#Styles: end
+
+//!#helpers: start
+//!#helpers: end
+
+//!#propTypes: start
+//!#propTypes: end
 
 const BUTTON_EXAMPLE_CODE = `<Button
   label="Save"
@@ -12,9 +24,8 @@ const BUTTON_EXAMPLE_CODE = `<Button
   onClick={() => {}}
 />`;
 
-//@@viewOn:component
 const ButtonDoc = () => {
-  //@@viewOn:private
+  //!#visualComponent: start
   const { darkMode } = useTheme();
   const { t } = useTranslation();
   const propTypesList = getPropsWithTranslations(
@@ -492,9 +503,7 @@ const ButtonDoc = () => {
       ],
     },
   ];
-  //@@viewOff:private
-
-  //@@viewOn:render
+  //!#render components: start
   return (
     <div>
       <DocSeo title={pageTitle} description={description} />
@@ -538,11 +547,11 @@ const ButtonDoc = () => {
       />
     </div>
   );
-  //@@viewOff:render
+  //!#render components: end
+  //!#visualComponent: end
 };
-//@@viewOff:component
 
-//@@viewOn:exports
+//!#export: start
 export { ButtonDoc };
 export default ButtonDoc;
-//@@viewOff:exports
+//!#export: end

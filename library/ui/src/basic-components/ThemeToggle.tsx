@@ -1,4 +1,4 @@
-//@@viewOn:imports
+//!#Imports: start
 import React, { useState } from "react";
 import {
   getColorScheme,
@@ -10,14 +10,16 @@ import {
   type ThemeToggleSizeToken,
 } from "../tools/size";
 import Icon from "./Icon";
-//@@viewOff:imports
+//!#Imports: end
 
-//@@viewOn:constants
+//!#Constants: start
 const SUN_ICON = "mdi-white-balance-sunny";
 const MOON_ICON = "mdi-moon-waxing-crescent";
-//@@viewOff:constants
+const DEFAULT_ARIA_DARK = "Dark mode";
+const DEFAULT_ARIA_LIGHT = "Light mode";
+//!#Constants: end
 
-//@@viewOn:css
+//!#Styles: start
 const Css = {
   wrapper: (): React.CSSProperties => ({
     display: "inline-flex",
@@ -99,9 +101,12 @@ const Css = {
     };
   },
 };
-//@@viewOff:css
+//!#Styles: end
 
-//@@viewOn:propTypes
+//!#helpers: start
+//!#helpers: end
+
+//!#propTypes: start
 export type ThemeToggleProps = {
   darkMode: boolean;
   onToggle: () => void;
@@ -121,10 +126,7 @@ export const THEME_TOGGLE_PROP_NAMES = [
   "ariaLabelDark",
   "ariaLabelLight",
 ] as const;
-//@@viewOff:propTypes
-
-const DEFAULT_ARIA_DARK = "Dark mode";
-const DEFAULT_ARIA_LIGHT = "Light mode";
+//!#propTypes: end
 
 function ThemeToggle({
   darkMode,
@@ -135,6 +137,7 @@ function ThemeToggle({
   ariaLabelDark = DEFAULT_ARIA_DARK,
   ariaLabelLight = DEFAULT_ARIA_LIGHT,
 }: ThemeToggleProps) {
+  //!#visualComponent: start
   const [pressed, setPressed] = useState(false);
   const isDark = darkMode;
   const textScheme = getColorScheme("text", darkMode);
@@ -152,6 +155,7 @@ function ThemeToggle({
 
   const wrapperStyle = removeDefaultStyle ? {} : Css.wrapper();
 
+  //!#render components: start
   return (
     <div
       style={{ ...wrapperStyle, ...style }}
@@ -211,9 +215,11 @@ function ThemeToggle({
       </div>
     </div>
   );
+  //!#render components: end
+  //!#visualComponent: end
 }
 
-//@@viewOn:exports
+//!#export: start
 export { ThemeToggle };
 export default ThemeToggle;
-//@@viewOff:exports
+//!#export: end

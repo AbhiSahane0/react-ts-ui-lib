@@ -1,4 +1,4 @@
-//@@viewOn:imports
+//!#Imports: start
 import {
   Documentation,
   PENDING_PROP_NAMES,
@@ -8,7 +8,18 @@ import { useTranslation } from "../../i18n/useTranslation";
 import { getPropsWithTranslations } from "../../i18n/getPropsWithTranslations";
 import { useTheme } from "../../app/context/ThemeContext";
 import DocSeo from "../../app/DocSeo";
-//@@viewOff:imports
+
+//!#Constants: start
+//!#Constants: end
+
+//!#Styles: start
+//!#Styles: end
+
+//!#helpers: start
+//!#helpers: end
+
+//!#propTypes: start
+//!#propTypes: end
 
 const PENDING_EXAMPLE_CODE = `<Pending
   type="circular"
@@ -17,9 +28,8 @@ const PENDING_EXAMPLE_CODE = `<Pending
   darkMode={darkMode}
 />`;
 
-//@@viewOn:component
 const PendingDoc = () => {
-  //@@viewOn:private
+  //!#visualComponent: start
   const { darkMode } = useTheme();
   const { t } = useTranslation();
   const propTypesList = getPropsWithTranslations(
@@ -119,12 +129,12 @@ const PendingDoc = () => {
       ],
     },
   ];
-  //@@viewOff:private
+  //!#visualComponent: end
 
   const pageTitle = t("pending.title");
   const description = t("pending.basicInfo.description");
 
-  //@@viewOn:render
+  //!#render components: start
   return (
     <div>
       <DocSeo title={pageTitle} description={description} />
@@ -163,11 +173,11 @@ const PendingDoc = () => {
       />
     </div>
   );
-  //@@viewOff:render
+  //!#render components: end
+  //!#visualComponent: end
 };
-//@@viewOff:component
 
-//@@viewOn:exports
+//!#export: start
 export { PendingDoc as Pending };
 export default PendingDoc;
-//@@viewOff:exports
+//!#export: end

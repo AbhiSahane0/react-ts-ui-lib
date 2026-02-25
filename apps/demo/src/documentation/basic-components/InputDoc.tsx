@@ -1,11 +1,23 @@
-//@@viewOn:imports
+//!#Imports: start
 import { Documentation, INPUT_PROP_NAMES, Input } from "@react-ts-ui-lib/ui";
 import { useTranslation } from "../../i18n/useTranslation";
 import { getPropsWithTranslations } from "../../i18n/getPropsWithTranslations";
 import { useTheme } from "../../app/context/ThemeContext";
 import { useState } from "react";
 import DocSeo from "../../app/DocSeo";
-//@@viewOff:imports
+//!#Imports: end
+
+//!#Constants: start
+//!#Constants: end
+
+//!#Styles: start
+//!#Styles: end
+
+//!#helpers: start
+//!#helpers: end
+
+//!#propTypes: start
+//!#propTypes: end
 
 const INPUT_EXAMPLE_CODE = `<Input
   label="Email"
@@ -13,9 +25,8 @@ const INPUT_EXAMPLE_CODE = `<Input
   onChange={(e) => setValue(e.target.value)}
 />`;
 
-//@@viewOn:component
 const InputDoc = () => {
-  //@@viewOn:private
+  //!#visualComponent: start
   const { darkMode } = useTheme();
   const { t } = useTranslation();
   const propTypesList = getPropsWithTranslations("input", INPUT_PROP_NAMES, t);
@@ -34,6 +45,21 @@ const InputDoc = () => {
             <Input
               label="Basic Input"
               placeholder="Type something..."
+              value={basicValue}
+              onChange={(e) => setBasicValue(e.target.value)}
+            />
+          ),
+        },
+      ],
+    },
+    {
+      category: t("input.examples.placeholder"),
+      itemList: [
+        {
+          label: t("input.examples.placeholder"),
+          components: (
+            <Input
+              placeholder="Search..."
               value={basicValue}
               onChange={(e) => setBasicValue(e.target.value)}
             />
@@ -167,12 +193,12 @@ const InputDoc = () => {
       ],
     },
   ];
-  //@@viewOff:private
+  //!#visualComponent: end
 
   const pageTitle = t("input.title");
   const description = t("input.basicInfo.description");
 
-  //@@viewOn:render
+  //!#render components: start
   return (
     <div>
       <DocSeo title={pageTitle} description={description} />
@@ -210,11 +236,11 @@ const InputDoc = () => {
       />
     </div>
   );
-  //@@viewOff:render
+  //!#render components: end
+  //!#visualComponent: end
 };
-//@@viewOff:component
 
-//@@viewOn:exports
+//!#export: start
 export { InputDoc };
 export default InputDoc;
-//@@viewOff:exports
+//!#export: end

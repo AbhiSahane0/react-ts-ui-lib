@@ -1,4 +1,4 @@
-//@@viewOn:imports
+//!#Imports: start
 import React from "react";
 import {
   getColorScheme,
@@ -10,12 +10,12 @@ import {
 import { getRadiusValue, type RadiusToken } from "../tools/radius";
 import { getBadgeSize, type SizeToken } from "../tools/size";
 import Icon from "./Icon";
-//@@viewOff:imports
+//!#Imports: end
 
-//@@viewOn:constants
-//@@viewOff:constants
+//!#Constants: start
+//!#Constants: end
 
-//@@viewOn:css
+//!#Styles: start
 const Css = {
   badge: (
     removeDefaultStyle?: boolean,
@@ -54,12 +54,12 @@ const Css = {
     };
   },
 };
-//@@viewOff:css
+//!#Styles: end
 
-//@@viewOn:helpers
-//@@viewOff:helpers
+//!#helpers: start
+//!#helpers: end
 
-//@@viewOn:propTypes
+//!#propTypes: start
 export type BadgeProps = {
   children?: React.ReactNode;
   label?: string;
@@ -98,9 +98,8 @@ export const BADGE_PROP_NAMES = [
   "removeDefaultStyle",
   "modern",
 ] as const;
-//@@viewOff:propTypes
+//!#propTypes: end
 
-//@@viewOn:component
 const Badge = ({
   children,
   label,
@@ -119,7 +118,7 @@ const Badge = ({
   removeDefaultStyle = false,
   modern = false,
 }: BadgeProps) => {
-  //@@viewOn:private
+  //!#visualComponent: start
   if (hidden) return null;
 
   const scheme = getSignificanceColor(colorScheme, significance, darkMode);
@@ -143,9 +142,6 @@ const Badge = ({
 
   const clickable = !!onClick && !disabled;
   const content = children ?? label;
-  //@@viewOff:private
-
-  //@@viewOn:render
   const badgeStyle = Css.badge(
     removeDefaultStyle,
     finalBackground,
@@ -161,6 +157,7 @@ const Badge = ({
     badgeSize.width,
   );
 
+  //!#render components: start
   return (
     <span
       className={noPrint ? "no-print" : undefined}
@@ -174,11 +171,11 @@ const Badge = ({
       {content}
     </span>
   );
-  //@@viewOff:render
+  //!#render components: end
+  //!#visualComponent: end
 };
-//@@viewOff:component
 
-//@@viewOn:exports
+//!#export: start
 export { Badge };
 export default Badge;
-//@@viewOff:exports
+//!#export: end

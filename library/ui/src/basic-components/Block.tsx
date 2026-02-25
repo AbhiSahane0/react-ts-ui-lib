@@ -1,4 +1,4 @@
-//@@viewOn:imports
+//!#Imports: start
 import React, { useState, useRef, useEffect } from "react";
 import {
   type ColorScheme,
@@ -9,13 +9,13 @@ import {
 } from "../tools/colors";
 import { getRadiusValue, type RadiusToken } from "../tools/radius";
 import Icon from "./Icon";
-//@@viewOff:imports
+//!#Imports: end
 
-//@@viewOn:constants
+//!#Constants: start
 const DEFAULT_PADDING = 16;
-//@@viewOff:constants
+//!#Constants: end
 
-//@@viewOn:css
+//!#Styles: start
 const Css = {
   block: (
     removeDefaultStyle?: boolean,
@@ -237,17 +237,17 @@ const Css = {
     };
   },
 };
-//@@viewOff:css
+//!#Styles: end
 
-//@@viewOn:helpers
+//!#helpers: start
 const formatUnit = (value: string | number | undefined): string | undefined => {
   if (value === undefined) return undefined;
   if (typeof value === "number") return `${value}px`;
   return value;
 };
-//@@viewOff:helpers
+//!#helpers: end
 
-//@@viewOn:propTypes
+//!#propTypes: start
 export type BlockProps = {
   children?: React.ReactNode;
   card?: "none" | "full";
@@ -303,9 +303,8 @@ export const BLOCK_PROP_NAMES = [
   "borderBottom",
   "borderLeft",
 ] as const;
-//@@viewOff:propTypes
+//!#propTypes: end
 
-//@@viewOn:component
 const Block = ({
   children,
   card = "none",
@@ -332,7 +331,7 @@ const Block = ({
   borderBottom = true,
   borderLeft = true,
 }: BlockProps) => {
-  //@@viewOn:private
+  //!#visualComponent: start
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [isInfoOpen, setIsInfoOpen] = useState(false);
   const infoRef = useRef<HTMLDivElement>(null);
@@ -401,9 +400,7 @@ const Block = ({
   const toggleInfo = () => {
     setIsInfoOpen(!isInfoOpen);
   };
-  //@@viewOff:private
-
-  //@@viewOn:render
+  //!#render components: start
   const blockStyle = Css.block(
     removeDefaultStyle,
     card === "full" ? background : undefined,
@@ -513,11 +510,11 @@ const Block = ({
       {footer && renderFooter()}
     </div>
   );
-  //@@viewOff:render
+  //!#render components: end
+  //!#visualComponent: end
 };
-//@@viewOff:component
 
-//@@viewOn:exports
+//!#export: start
 export { Block };
 export default Block;
-//@@viewOff:exports
+//!#export: end

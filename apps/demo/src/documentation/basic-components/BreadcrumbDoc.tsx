@@ -1,16 +1,27 @@
-//@@viewOn:imports
+//!#Imports: start
 import { Documentation, BREADCRUMB_PROP_NAMES, Breadcrumb } from "@react-ts-ui-lib/ui";
 import { useTranslation } from "../../i18n/useTranslation";
 import { getPropsWithTranslations } from "../../i18n/getPropsWithTranslations";
 import { useTheme } from "../../app/context/ThemeContext";
 import DocSeo from "../../app/DocSeo";
-//@@viewOff:imports
+//!#Imports: end
+
+//!#Constants: start
+//!#Constants: end
+
+//!#Styles: start
+//!#Styles: end
+
+//!#helpers: start
+//!#helpers: end
+
+//!#propTypes: start
+//!#propTypes: end
 
 const BREADCRUMB_EXAMPLE_CODE = `<Breadcrumb fromUrl={true} basePath="/" />`;
 
-//@@viewOn:component
 const BreadcrumbDoc = () => {
-  //@@viewOn:private
+  //!#visualComponent: start
   const { darkMode } = useTheme();
   const { t } = useTranslation();
   const propTypesList = getPropsWithTranslations(
@@ -35,9 +46,7 @@ const BreadcrumbDoc = () => {
       ],
     },
   ];
-  //@@viewOff:private
-
-  //@@viewOn:render
+  //!#render components: start
   return (
     <div>
       <DocSeo title={pageTitle} description={description} />
@@ -71,12 +80,12 @@ const BreadcrumbDoc = () => {
       />
     </div>
   );
-  //@@viewOff:render
+  //!#render components: end
+  //!#visualComponent: end
 };
-//@@viewOff:component
 
-//@@viewOn:exports
+//!#export: start
 export { BreadcrumbDoc };
 export default BreadcrumbDoc;
-//@@viewOff:exports
+//!#export: end
 

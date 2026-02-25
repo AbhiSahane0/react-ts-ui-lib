@@ -1,23 +1,25 @@
-//@@viewOn:imports
+//!#Imports: start
 import { Icon as MdiIcon } from "@mdi/react";
 import * as mdiIcons from "@mdi/js";
 import { getIconSize, type SizeToken } from "../tools/size";
-//@@viewOff:imports
+import { getColorScheme, type ColorScheme } from "../tools/colors";
+//!#Imports: end
 
-//@@viewOn:constants
-//@@viewOff:constants
+//!#Constants: start
+//!#Constants: end
 
-//@@viewOn:css
-//@@viewOff:css
+//!#Styles: start
+//!#Styles: end
 
-//@@viewOn:helpers
-//@@viewOff:helpers
+//!#helpers: start
+//!#helpers: end
 
-//@@viewOn:propTypes
+//!#propTypes: start
 export type IconProps = {
   icon?: string;
   size?: SizeToken | number;
   color?: string;
+  colorScheme?: ColorScheme;
   style?: React.CSSProperties;
   onClick?: React.MouseEventHandler<HTMLSpanElement>;
   removeDefaultStyle?: boolean;
@@ -32,6 +34,7 @@ export const ICON_PROP_NAMES = [
   "icon",
   "size",
   "color",
+  "colorScheme",
   "style",
   "onClick",
   "removeDefaultStyle",
@@ -40,12 +43,13 @@ export const ICON_PROP_NAMES = [
   "tooltip",
   "darkMode",
 ] as const;
-//@@viewOff:propTypes
+//!#propTypes: end
 
 function Icon({
   icon = "mdi-close",
   size = "md",
   color,
+  colorScheme,
   style,
   onClick,
   removeDefaultStyle = false,
@@ -54,7 +58,7 @@ function Icon({
   darkMode = true,
   tooltip,
 }: IconProps) {
-  //@@viewOn:private
+  //!#visualComponent: start
   if (hidden) return null;
   if (!icon) return null;
 
@@ -69,12 +73,13 @@ function Icon({
   const iconSize =
     typeof size === "number" ? size : getIconSize(size as SizeToken).size;
 
-  // Resolve default color based on theme when color is not provided
-  const resolvedColor = color ?? (darkMode ? "white" : "#111827");
 
-  //@@viewOff:private
-
-  //@@viewOn:render
+  const schemeFromProp = colorScheme
+    ? getColorScheme(colorScheme, darkMode)
+    : null;
+  const textScheme = getColorScheme("text", darkMode);
+  const resolvedColor = color ?? schemeFromProp?.color ?? textScheme.color;
+  //!#render components: start
   const baseStyle: React.CSSProperties = {
     cursor: onClick === undefined? "inherit" : "pointer",
     display: "inline-flex",
@@ -97,10 +102,11 @@ function Icon({
       {label && <span>{label}</span>}
     </span>
   );
-  //@@viewOff:render
+  //!#render components: end
+  //!#visualComponent: end
 }
 
-//@@viewOn:exports
+//!#export: start
 export { Icon };
 export default Icon;
-//@@viewOff:exports
+//!#export: end

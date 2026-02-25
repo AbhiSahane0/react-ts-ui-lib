@@ -1,24 +1,31 @@
-//@@viewOn:imports
+//!#Imports: start
 import { UnderConstruction } from "@react-ts-ui-lib/ui";
 import { useTheme } from "./context/ThemeContext";
-//@@viewOff:imports
+//!#Imports: end
 
-//@@viewOn:constants
-//@@viewOff:constants
+//!#Constants: start
+//!#Constants: end
 
-//@@viewOn:propTypes
-// No props for now – simple placeholder page.
-//@@viewOff:propTypes
+//!#Styles: start
+//!#Styles: end
+
+//!#helpers: start
+//!#helpers: end
+
+//!#propTypes: start
+//!#propTypes: end
 
 const Table = () => {
+  //!#visualComponent: start
   const { darkMode } = useTheme();
-  //@@viewOn:render
+  //!#render components: start
   return <UnderConstruction darkMode={darkMode} />;
-  //@@viewOff:render
+  //!#render components: end
+  //!#visualComponent: end
 };
 
-//@@viewOn:exports
+//!#export: start
 export { Table };
 export default Table;
-//@@viewOff:exports
+//!#export: end
 

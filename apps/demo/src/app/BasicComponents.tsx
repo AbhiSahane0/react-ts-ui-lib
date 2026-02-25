@@ -1,16 +1,16 @@
-//@@viewOn:imports
+//!#Imports: start
 import { useState, useRef } from "react";
 import { Block, Button, Icon, Number, Pending, Badge, ThemeToggle, Label, CopyToClipboard, InfoGroup, ProfileCard, Popover } from "@react-ts-ui-lib/ui";
 import type { InfoGroupItem } from "@react-ts-ui-lib/ui";
 import { copyToClipboard } from "@react-ts-ui-lib/utilities";
 import { useTranslation } from "../i18n/useTranslation";
 import { useTheme } from "./context/ThemeContext";
-//@@viewOff:imports
+//!#Imports: end
 
-//@@viewOn:constants
-//@@viewOff:constants
+//!#Constants: start
+//!#Constants: end
 
-//@@viewOn:css
+//!#Styles: start
 const getStyles = (): Record<string, React.CSSProperties> => ({
   container: {
     display: "flex",
@@ -36,16 +36,16 @@ const getStyles = (): Record<string, React.CSSProperties> => ({
     marginBottom: 24,
   },
 });
-//@@viewOff:css
+//!#Styles: end
 
-//@@viewOn:helpers
-//@@viewOff:helpers
+//!#helpers: start
+//!#helpers: end
 
-//@@viewOn:propTypes
-//@@viewOff:propTypes
+//!#propTypes: start
+//!#propTypes: end
 
 const BasicComponents = () => {
-  //@@viewOn:private
+  //!#visualComponent: start
   const { darkMode } = useTheme();
   const { t } = useTranslation();
   const styles = getStyles();
@@ -57,16 +57,13 @@ const BasicComponents = () => {
     { title: "Status", subtitle: <Badge label="Active" colorScheme="success" /> },
     { title: "Count", subtitle: <Number value={42} /> },
   ];
-  //@@viewOff:private
-
-  //@@viewOn:render
+  //!#render components: start
   return (
     <div style={styles.container}>
       <Block card="full" darkMode={darkMode} header={t("basicComponentsPage.title")}  >
         <p style={{ marginBottom: 24 }}>{t("basicComponentsPage.description")}</p>
         <p style={{ marginBottom: 24 }}>{t("basicComponentsPage.instructions")}</p>
       </Block>
-
 
       <div style={styles.grid}>
         <Block card="full" darkMode={darkMode} header={t("basicComponentsPage.components.buttons")}>
@@ -175,10 +172,11 @@ const BasicComponents = () => {
       </div>
     </div>
   );
-  //@@viewOff:render
+  //!#render components: end
+  //!#visualComponent: end
 };
 
-//@@viewOn:exports
+//!#export: start
 export { BasicComponents };
 export default BasicComponents;
-//@@viewOff:exports
+//!#export: end

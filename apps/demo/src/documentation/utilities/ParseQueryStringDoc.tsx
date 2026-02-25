@@ -1,11 +1,15 @@
-//@@viewOn:imports
+//!#Imports: start
 import { useState } from "react";
 import { Button, UtilityDocumentation } from "@react-ts-ui-lib/ui";
 import { parseQueryString } from "@react-ts-ui-lib/utilities";
 import { useTheme } from "../../app/context/ThemeContext";
 import { useTranslation } from "../../i18n/useTranslation";
-//@@viewOff:imports
+//!#Imports: end
 
+//!#Constants: start
+//!#Constants: end
+
+//!#Styles: start
 const inputStyle = (darkMode: boolean) => ({
   padding: "8px 12px",
   borderRadius: "4px",
@@ -15,9 +19,16 @@ const inputStyle = (darkMode: boolean) => ({
   width: "100%",
   boxSizing: "border-box" as const,
 });
+//!#Styles: end
 
-//@@viewOn:component
+//!#helpers: start
+//!#helpers: end
+
+//!#propTypes: start
+//!#propTypes: end
+
 const ParseQueryStringDoc = () => {
+  //!#visualComponent: start
   const { darkMode } = useTheme();
   const { t } = useTranslation();
   const [search, setSearch] = useState("?a=1&b=hello&c=3");
@@ -68,6 +79,7 @@ const ParseQueryStringDoc = () => {
     { title: t("parseQueryString.usage.basic.title"), code: t("parseQueryString.usage.basic.code") },
   ];
 
+  //!#render components: start
   return (
     <UtilityDocumentation
       title={t("parseQueryString.title")}
@@ -85,8 +97,11 @@ const ParseQueryStringDoc = () => {
       darkMode={darkMode}
     />
   );
+  //!#render components: end
+  //!#visualComponent: end
 };
-//@@viewOff:component
 
+//!#export: start
 export { ParseQueryStringDoc };
 export default ParseQueryStringDoc;
+//!#export: end

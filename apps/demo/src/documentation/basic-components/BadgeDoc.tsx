@@ -1,21 +1,31 @@
-//@@viewOn:imports
-import { Documentation, BADGE_PROP_NAMES, Badge, Breadcrumb } from "@react-ts-ui-lib/ui";
+//!#Imports: start
+import { Documentation, BADGE_PROP_NAMES, Badge } from "@react-ts-ui-lib/ui";
 import { useTranslation } from "../../i18n/useTranslation";
 import { getPropsWithTranslations } from "../../i18n/getPropsWithTranslations";
 import { useTheme } from "../../app/context/ThemeContext";
 import DocSeo from "../../app/DocSeo";
-//@@viewOff:imports
+//!#Imports: end
 
+//!#Constants: start
 const BADGE_EXAMPLE_CODE = `<Badge
   colorScheme="success"
   darkMode={true}
 >
   Approved
 </Badge>`;
+//!#Constants: end
 
-//@@viewOn:component
+//!#Styles: start
+//!#Styles: end
+
+//!#helpers: start
+//!#helpers: end
+
+//!#propTypes: start
+//!#propTypes: end
+
 const BadgeDoc = () => {
-  //@@viewOn:private
+  //!#visualComponent: start
   const { darkMode } = useTheme();
   const { t } = useTranslation();
   const propTypesList = getPropsWithTranslations("badge", BADGE_PROP_NAMES, t);
@@ -264,13 +274,11 @@ const BadgeDoc = () => {
       ],
     },
   ];
-  //@@viewOff:private
-
-  //@@viewOn:render
+  //!#render components: start
   return (
     <div>
-      <DocSeo title={pageTitle} description={description} />
-      <Breadcrumb fromUrl={true} basePath="/" />
+       <DocSeo title={pageTitle} description={description} /> 
+      {/* <Breadcrumb fromUrl={true} basePath="/" /> */}
       <Documentation
         state="production"
         title={pageTitle}
@@ -311,12 +319,11 @@ const BadgeDoc = () => {
       />
     </div>
   );
-  //@@viewOff:render
+  //!#render components: end
+  //!#visualComponent: end
 };
-//@@viewOff:component
 
-//@@viewOn:exports
+//!#export: start
 export { BadgeDoc };
 export default BadgeDoc;
-//@@viewOff:exports
-
+//!#export: end

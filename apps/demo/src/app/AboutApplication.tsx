@@ -1,34 +1,32 @@
-//@@viewOn:imports
+//!#Imports: start
 import { UnderConstruction } from "@react-ts-ui-lib/ui";
-//@@viewOff:imports
+//!#Imports: end
 
-//@@viewOn:constants
-//@@viewOff:constants
+//!#Constants: start
+//!#Constants: end
 
-//@@viewOn:css
-//@@viewOff:css
+//!#Styles: start
+//!#Styles: end
 
-//@@viewOn:helpers
-//@@viewOff:helpers
+//!#helpers: start
+//!#helpers: end
 
-//@@viewOn:propTypes
-//@@viewOff:propTypes
+//!#propTypes: start
+//!#propTypes: end
 
 const AboutApplication = () => {
-  //@@viewOn:private
-
-  //@@viewOff:private
-
-  //@@viewOn:render
+  //!#visualComponent: start
+  //!#render components: start
   return (
     <div>
       <UnderConstruction />
     </div>
   );
-  //@@viewOff:render
+  //!#render components: end
+  //!#visualComponent: end
 };
 
-//@@viewOn:exports
+//!#export: start
 export { AboutApplication };
 export default AboutApplication;
-//@@viewOff:exports
+//!#export: end

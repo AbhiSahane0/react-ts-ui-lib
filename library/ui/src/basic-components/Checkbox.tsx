@@ -1,12 +1,12 @@
-//@@viewOn:imports
+//!#Imports: start
 import React from "react";
 import { getColorScheme } from "../tools/colors";
-//@@viewOff:imports
+//!#Imports: end
 
-//@@viewOn:constants
-//@@viewOff:constants
+//!#Constants: start
+//!#Constants: end
 
-//@@viewOn:css
+//!#Styles: start
 const Css = {
   wrapper: (removeDefaultStyle?: boolean): React.CSSProperties => {
     if (removeDefaultStyle) {
@@ -96,12 +96,12 @@ const Css = {
     };
   },
 };
-//@@viewOff:css
+//!#Styles: end
 
-//@@viewOn:helpers
-//@@viewOff:helpers
+//!#helpers: start
+//!#helpers: end
 
-//@@viewOn:propTypes
+//!#propTypes: start
 export type CheckboxProps = {
   style?: React.CSSProperties;
   noPrint?: boolean;
@@ -136,7 +136,7 @@ export const CHECKBOX_PROP_NAMES = [
   "error",
   "errorMessage",
 ] as const;
-//@@viewOff:propTypes
+//!#propTypes: end
 
 const Checkbox = ({
   style,
@@ -154,11 +154,9 @@ const Checkbox = ({
   error = false,
   errorMessage,
 }: CheckboxProps) => {
-  //@@viewOn:private
+  //!#visualComponent: start
   if (hidden) return null;
-  //@@viewOff:private
-
-  //@@viewOn:render
+  //!#render components: start
   return (
     <div
       className={noPrint ? "no-print" : undefined}
@@ -187,10 +185,11 @@ const Checkbox = ({
       )}
     </div>
   );
-  //@@viewOff:render
+  //!#render components: end
+  //!#visualComponent: end
 };
 
-//@@viewOn:exports
+//!#export: start
 export { Checkbox };
 export default Checkbox;
-//@@viewOff:exports
+//!#export: end

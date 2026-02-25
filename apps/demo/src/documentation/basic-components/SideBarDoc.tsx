@@ -1,4 +1,4 @@
-//@@viewOn:imports
+//!#Imports: start
 import {
   Documentation,
   SIDEBAR_PROP_NAMES,
@@ -9,7 +9,19 @@ import { useTranslation } from "../../i18n/useTranslation";
 import { getPropsWithTranslations } from "../../i18n/getPropsWithTranslations";
 import { useTheme } from "../../app/context/ThemeContext";
 import DocSeo from "../../app/DocSeo";
-//@@viewOff:imports
+//!#Imports: end
+
+//!#Constants: start
+//!#Constants: end
+
+//!#Styles: start
+//!#Styles: end
+
+//!#helpers: start
+//!#helpers: end
+
+//!#propTypes: start
+//!#propTypes: end
 
 const SIDEBAR_EXAMPLE_CODE = `<SideBar
   itemList={itemList}
@@ -18,9 +30,8 @@ const SIDEBAR_EXAMPLE_CODE = `<SideBar
   darkMode={darkMode}
 />`;
 
-//@@viewOn:component
 const SideBarDoc = () => {
-  //@@viewOn:private
+  //!#visualComponent: start
   const { darkMode } = useTheme();
   const { t } = useTranslation();
   const propTypesList = getPropsWithTranslations(
@@ -65,12 +76,12 @@ const SideBarDoc = () => {
       ],
     },
   ];
-  //@@viewOff:private
+  //!#visualComponent: end
 
   const pageTitle = t("sidebar.title");
   const description = t("sidebar.basicInfo.description");
 
-  //@@viewOn:render
+  //!#render components: start
   return (
     <div>
       <DocSeo title={pageTitle} description={description} />
@@ -112,11 +123,11 @@ const SideBarDoc = () => {
       />
     </div>
   );
-  //@@viewOff:render
+  //!#render components: end
+  //!#visualComponent: end
 };
-//@@viewOff:component
 
-//@@viewOn:exports
+//!#export: start
 export { SideBarDoc as SideBar };
 export default SideBarDoc;
-//@@viewOff:exports
+//!#export: end

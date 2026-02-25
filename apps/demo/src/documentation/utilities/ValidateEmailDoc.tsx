@@ -1,11 +1,15 @@
-//@@viewOn:imports
+//!#Imports: start
 import { useState } from "react";
 import { Button, UtilityDocumentation } from "@react-ts-ui-lib/ui";
 import { validateEmail } from "@react-ts-ui-lib/utilities";
 import { useTheme } from "../../app/context/ThemeContext";
 import { useTranslation } from "../../i18n/useTranslation";
-//@@viewOff:imports
+//!#Imports: end
 
+//!#Constants: start
+//!#Constants: end
+
+//!#Styles: start
 const inputStyle = (darkMode: boolean) => ({
   padding: "8px 12px",
   borderRadius: "4px",
@@ -15,9 +19,16 @@ const inputStyle = (darkMode: boolean) => ({
   width: "100%",
   boxSizing: "border-box" as const,
 });
+//!#Styles: end
 
-//@@viewOn:component
+//!#helpers: start
+//!#helpers: end
+
+//!#propTypes: start
+//!#propTypes: end
+
 const ValidateEmailDoc = () => {
+  //!#visualComponent: start
   const { darkMode } = useTheme();
   const { t } = useTranslation();
   const [email, setEmail] = useState("user@example.com");
@@ -69,6 +80,7 @@ const ValidateEmailDoc = () => {
     { title: t("validateEmail.usage.basic.title"), code: t("validateEmail.usage.basic.code") },
   ];
 
+  //!#render components: start
   return (
     <UtilityDocumentation
       title={t("validateEmail.title")}
@@ -86,8 +98,11 @@ const ValidateEmailDoc = () => {
       darkMode={darkMode}
     />
   );
+  //!#render components: end
+  //!#visualComponent: end
 };
-//@@viewOff:component
 
+//!#export: start
 export { ValidateEmailDoc };
 export default ValidateEmailDoc;
+//!#export: end

@@ -1,4 +1,4 @@
-//@@viewOn:imports
+//!#Imports: start
 import {
   Documentation,
   COPY_TO_CLIPBOARD_PROP_NAMES,
@@ -9,15 +9,26 @@ import { useTranslation } from "../../i18n/useTranslation";
 import { getPropsWithTranslations } from "../../i18n/getPropsWithTranslations";
 import { useTheme } from "../../app/context/ThemeContext";
 import DocSeo from "../../app/DocSeo";
-//@@viewOff:imports
+//!#Imports: end
+
+//!#Constants: start
+//!#Constants: end
+
+//!#Styles: start
+//!#Styles: end
+
+//!#helpers: start
+//!#helpers: end
+
+//!#propTypes: start
+//!#propTypes: end
 
 const COPY_TO_CLIPBOARD_EXAMPLE_CODE = `<CopyToClipboard
   text="Text to copy"
-  onCopy={() => {}}
-  darkMode={darkMode}
+  onCopy={copyToClipboard}
+  backgroundColorScheme="background"
 />`;
 
-//@@viewOn:component
 const CopyToClipboardDoc = () => {
   const { darkMode } = useTheme();
   const { t } = useTranslation();
@@ -77,7 +88,18 @@ const CopyToClipboardDoc = () => {
               onCopy={copyToClipboard}
               label="Copy"
               darkMode={darkMode}
-              removeDefaultStyle
+              backgroundColorScheme={null}
+            />
+          ),
+        },
+        {
+          label: t("copyToClipboard.examples.iconOnly"),
+          components: (
+            <CopyToClipboard
+              text="Icon only"
+              onCopy={copyToClipboard}
+              label=""
+              darkMode={darkMode}
             />
           ),
         },
@@ -127,6 +149,5 @@ const CopyToClipboardDoc = () => {
     </div>
   );
 };
-//@@viewOff:component
 
 export default CopyToClipboardDoc;

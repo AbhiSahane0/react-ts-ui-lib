@@ -1,11 +1,15 @@
-//@@viewOn:imports
+//!#Imports: start
 import { useState } from "react";
 import { Button, UtilityDocumentation } from "@react-ts-ui-lib/ui";
 import { fromCamelCase } from "@react-ts-ui-lib/utilities";
 import { useTheme } from "../../app/context/ThemeContext";
 import { useTranslation } from "../../i18n/useTranslation";
-//@@viewOff:imports
+//!#Imports: end
 
+//!#Constants: start
+//!#Constants: end
+
+//!#Styles: start
 const inputStyle = (darkMode: boolean) => ({
   padding: "8px 12px",
   borderRadius: "4px",
@@ -15,9 +19,16 @@ const inputStyle = (darkMode: boolean) => ({
   width: "100%",
   boxSizing: "border-box" as const,
 });
+//!#Styles: end
 
-//@@viewOn:component
+//!#helpers: start
+//!#helpers: end
+
+//!#propTypes: start
+//!#propTypes: end
+
 const FromCamelCaseDoc = () => {
+  //!#visualComponent: start
   const { darkMode } = useTheme();
   const { t } = useTranslation();
   const [input, setInput] = useState("helloWorld");
@@ -91,6 +102,7 @@ const FromCamelCaseDoc = () => {
     { title: t("fromCamelCase.usage.custom.title"), code: t("fromCamelCase.usage.custom.code") },
   ];
 
+  //!#render components: start
   return (
     <UtilityDocumentation
       title={t("fromCamelCase.title")}
@@ -108,8 +120,11 @@ const FromCamelCaseDoc = () => {
       darkMode={darkMode}
     />
   );
+  //!#render components: end
+  //!#visualComponent: end
 };
-//@@viewOff:component
 
+//!#export: start
 export { FromCamelCaseDoc };
 export default FromCamelCaseDoc;
+//!#export: end

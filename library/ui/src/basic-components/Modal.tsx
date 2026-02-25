@@ -1,15 +1,15 @@
-//@@viewOn:imports
+//!#Imports: start
 import React, { useEffect } from "react";
 import { getBorderColor, getColorScheme, getRgbaFromScheme } from "../tools/colors";
 import { getRadiusValue, type RadiusToken } from "../tools/radius";
 import Icon from "./Icon";
-//@@viewOff:imports
+//!#Imports: end
 
-//@@viewOn:constants
+//!#Constants: start
 const DEFAULT_PADDING = 16;
-//@@viewOff:constants
+//!#Constants: end
 
-//@@viewOn:css
+//!#Styles: start
 const Css = {
   overlay: (
     removeDefaultStyle?: boolean,
@@ -152,9 +152,9 @@ const Css = {
     cursor: "pointer",
   }),
 };
-//@@viewOff:css
+//!#Styles: end
 
-//@@viewOn:helpers
+//!#helpers: start
 const formatUnit = (value: string | number | undefined): string | number | undefined => {
   if (value === undefined) return undefined;
   if (typeof value === "number") return `${value}px`;
@@ -175,9 +175,9 @@ const getSizeDefaults = (size: ModalSize) => {
       return { width: 520, maxWidth: "90vw" };
   }
 };
-//@@viewOff:helpers
+//!#helpers: end
 
-//@@viewOn:propTypes
+//!#propTypes: start
 export type ModalSize = "sm" | "md" | "lg" | "xl" | "full";
 
 export type ModalProps = {
@@ -229,9 +229,8 @@ export const MODAL_PROP_NAMES = [
   "hidden",
   "noPrint",
 ] as const;
-//@@viewOff:propTypes
+//!#propTypes: end
 
-//@@viewOn:component
 const Modal = ({
   open,
   onClose,
@@ -256,7 +255,7 @@ const Modal = ({
   hidden = false,
   noPrint = false,
 }: ModalProps) => {
-  //@@viewOn:private
+  //!#visualComponent: start
   useEffect(() => {
     if (!open || !closeOnEsc) return undefined;
 
@@ -296,9 +295,7 @@ const Modal = ({
       onClose?.();
     }
   };
-  //@@viewOff:private
-
-  //@@viewOn:render
+  //!#render components: start
   return (
     <div
       className={noPrint ? "no-print" : undefined}
@@ -371,11 +368,11 @@ const Modal = ({
       </div>
     </div>
   );
-  //@@viewOff:render
+  //!#render components: end
+  //!#visualComponent: end
 };
-//@@viewOff:component
 
-//@@viewOn:exports
+//!#export: start
 export { Modal };
 export default Modal;
-//@@viewOff:exports
+//!#export: end

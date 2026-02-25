@@ -1,4 +1,4 @@
-//@@viewOn:imports
+//!#Imports: start
 import React, { useState } from "react";
 import {
   type ColorScheme,
@@ -8,12 +8,12 @@ import {
 } from "../tools/colors";
 import Icon from "./Icon";
 import { getRadiusValue, type RadiusToken } from "../tools/radius";
-//@@viewOff:imports
+//!#Imports: end
 
-//@@viewOn:constants
-//@@viewOff:constants
+//!#Constants: start
+//!#Constants: end
 
-//@@viewOn:css
+//!#Styles: start
 const Css = {
   container: (removeDefaultStyle?: boolean): React.CSSProperties => {
     if (removeDefaultStyle) {
@@ -192,12 +192,12 @@ const Css = {
     flexShrink: 0,
   }),
 };
-//@@viewOff:css
+//!#Styles: end
 
-//@@viewOn:helpers
-//@@viewOff:helpers
+//!#helpers: start
+//!#helpers: end
 
-//@@viewOn:propTypes
+//!#propTypes: start
 export type TabGroupItem = {
   title: React.ReactNode;
   subtitle?: React.ReactNode;
@@ -247,7 +247,7 @@ export const TAB_GROUP_PROP_NAMES = [
   "darkMode",
   "borderRadius",
 ] as const;
-//@@viewOff:propTypes
+//!#propTypes: end
 
 const TabGroup = ({
   itemList,
@@ -267,7 +267,7 @@ const TabGroup = ({
   darkMode = true,
   borderRadius = "md",
 }: TabGroupProps) => {
-  //@@viewOn:private
+  //!#visualComponent: start
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   if (hidden) return null;
@@ -288,9 +288,7 @@ const TabGroup = ({
   const isTabActive = (item: TabGroupItem): boolean => {
     return item.code === codeActive;
   };
-  //@@viewOff:private
-
-  //@@viewOn:render
+  //!#render components: start
   return (
     <div
       className={noPrint ? "no-print" : undefined}
@@ -380,10 +378,11 @@ const TabGroup = ({
       )}
     </div>
   );
-  //@@viewOff:render
+  //!#render components: end
+  //!#visualComponent: end
 };
 
-//@@viewOn:exports
+//!#export: start
 export { TabGroup };
 export default TabGroup;
-//@@viewOff:exports
+//!#export: end

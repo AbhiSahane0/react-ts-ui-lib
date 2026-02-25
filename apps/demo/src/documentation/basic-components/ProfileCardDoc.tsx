@@ -1,4 +1,4 @@
-//@@viewOn:imports
+//!#Imports: start
 import {
   Documentation,
   PROFILE_CARD_PROP_NAMES,
@@ -9,7 +9,19 @@ import { useTranslation } from "../../i18n/useTranslation";
 import { getPropsWithTranslations } from "../../i18n/getPropsWithTranslations";
 import { useTheme } from "../../app/context/ThemeContext";
 import DocSeo from "../../app/DocSeo";
-//@@viewOff:imports
+//!#Imports: end
+
+//!#Constants: start
+//!#Constants: end
+
+//!#Styles: start
+//!#Styles: end
+
+//!#helpers: start
+//!#helpers: end
+
+//!#propTypes: start
+//!#propTypes: end
 
 const PROFILE_CARD_EXAMPLE_CODE = `<ProfileCard
   name="John Doe"
@@ -18,9 +30,8 @@ const PROFILE_CARD_EXAMPLE_CODE = `<ProfileCard
   darkMode={darkMode}
 />`;
 
-//@@viewOn:component
 const ProfileCardDoc = () => {
-  //@@viewOn:private
+  //!#visualComponent: start
   const { darkMode } = useTheme();
   const { t } = useTranslation();
   const propTypesList = getPropsWithTranslations(
@@ -315,12 +326,12 @@ const ProfileCardDoc = () => {
       ],
     },
   ];
-  //@@viewOff:private
+  //!#visualComponent: end
 
   const pageTitle = t("profileCard.title");
   const description = t("profileCard.basicInfo.description");
 
-  //@@viewOn:render
+  //!#render components: start
   return (
     <div>
       <DocSeo title={pageTitle} description={description} />
@@ -358,11 +369,11 @@ const ProfileCardDoc = () => {
       />
     </div>
   );
-  //@@viewOff:render
+  //!#render components: end
+  //!#visualComponent: end
 };
-//@@viewOff:component
 
-//@@viewOn:exports
+//!#export: start
 export { ProfileCardDoc };
 export default ProfileCardDoc;
-//@@viewOff:exports
+//!#export: end

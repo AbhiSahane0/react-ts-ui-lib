@@ -1,30 +1,30 @@
-//@@viewOn:imports
+//!#Imports: start
 import { Block, Button, Icon, Navbar, SideBar, TabGroup } from "@react-ts-ui-lib/ui";
 import type { SideBarItem, TabGroupItem } from "@react-ts-ui-lib/ui";
 import { useTranslation } from "../i18n/useTranslation";
 import { useTheme } from "./context/ThemeContext";
-//@@viewOff:imports
+//!#Imports: end
 
-//@@viewOn:constants
-//@@viewOff:constants
+//!#Constants: start
+//!#Constants: end
 
-//@@viewOn:css
+//!#Styles: start
 const getStyles = (): Record<string, React.CSSProperties> => ({
   container: { display: "flex", flexDirection: "column", gap: 24, margin: 12 },
   grid: { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 24 },
   blockContent: { display: "flex", gap: 12, flexWrap: "wrap", alignItems: "center" },
   title: { fontSize: 24, fontWeight: 700, marginBottom: 24 },
 });
-//@@viewOff:css
+//!#Styles: end
 
-//@@viewOn:helpers
-//@@viewOff:helpers
+//!#helpers: start
+//!#helpers: end
 
-//@@viewOn:propTypes
-//@@viewOff:propTypes
+//!#propTypes: start
+//!#propTypes: end
 
 const LayoutStructureComponents = () => {
-  //@@viewOn:private
+  //!#visualComponent: start
   const { darkMode } = useTheme();
   const { t } = useTranslation();
   const styles = getStyles();
@@ -39,9 +39,7 @@ const LayoutStructureComponents = () => {
     { title: "Overview", subtitle: "Summary", content: <p>Overview content.</p>, code: "overview" },
     { title: "Details", subtitle: "More info", content: <p>Details content.</p>, code: "details" },
   ];
-  //@@viewOff:private
-
-  //@@viewOn:render
+  //!#render components: start
   return (
     <div style={styles.container}>
       <Block header={t("layoutStructureComponentsPage.title")} card="full" darkMode={darkMode}>
@@ -89,10 +87,11 @@ const LayoutStructureComponents = () => {
       </div>
     </div>
   );
-  //@@viewOff:render
+  //!#render components: end
+  //!#visualComponent: end
 };
 
-//@@viewOn:exports
+//!#export: start
 export { LayoutStructureComponents };
 export default LayoutStructureComponents;
-//@@viewOff:exports
+//!#export: end

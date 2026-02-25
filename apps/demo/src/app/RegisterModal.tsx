@@ -1,15 +1,15 @@
-//@@viewOn:imports
+//!#Imports: start
 import { useState } from "react";
 import { Modal, Button } from "@react-ts-ui-lib/ui";
 import { useTranslation } from "../i18n/useTranslation";
 import { useTheme } from "./context/ThemeContext";
 import { useAuth } from "./context/AuthContext";
-//@@viewOff:imports
+//!#Imports: end
 
-//@@viewOn:constants
-//@@viewOff:constants
+//!#Constants: start
+//!#Constants: end
 
-//@@viewOn:css
+//!#Styles: start
 const Css = {
   container: {
     display: "flex",
@@ -28,16 +28,16 @@ const Css = {
     textAlign: "center" as const,
   },
 };
-//@@viewOff:css
+//!#Styles: end
 
-//@@viewOn:helpers
-//@@viewOff:helpers
+//!#helpers: start
+//!#helpers: end
 
-//@@viewOn:propTypes
-//@@viewOff:propTypes
+//!#propTypes: start
+//!#propTypes: end
 
 const RegisterModal = ({ open, onClose }: { open: boolean; onClose: () => void }) => {
-  //@@viewOn:private
+  //!#visualComponent: start
   const { darkMode } = useTheme();
   const { t } = useTranslation();
   const { signInWithGoogle, user } = useAuth();
@@ -61,9 +61,7 @@ const RegisterModal = ({ open, onClose }: { open: boolean; onClose: () => void }
       setLoading(false);
     }
   };
-  //@@viewOff:private
-
-  //@@viewOn:render
+  //!#render components: start
   return (
     <Modal 
       open={open} 
@@ -100,11 +98,13 @@ const RegisterModal = ({ open, onClose }: { open: boolean; onClose: () => void }
       </div>
     </Modal>
   );
-  //@@viewOff:render
+  //!#render components: end
+
+  //!#visualComponent: end
 
 };
 
-//@@viewOn:exports
+//!#export: start
 export { RegisterModal };
 export default RegisterModal;
-//@@viewOff:exports
+//!#export: end

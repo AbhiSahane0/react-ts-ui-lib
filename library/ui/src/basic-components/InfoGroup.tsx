@@ -1,13 +1,13 @@
-//@@viewOn:imports
+//!#Imports: start
 import type { TextAlignOptions } from "../tools/textAlignOptions";
 import React from "react";
 import Icon from "./Icon";
-//@@viewOff:imports
+//!#Imports: end
 
-//@@viewOn:constants
-//@@viewOff:constants
+//!#Constants: start
+//!#Constants: end
 
-//@@viewOn:css
+//!#Styles: start
 const Css = {
   container: (
     removeDefaultStyle?: boolean,
@@ -47,12 +47,12 @@ const Css = {
     gap: "0.25rem",
   }),
 };
-//@@viewOff:css
+//!#Styles: end
 
-//@@viewOn:helpers
-//@@viewOff:helpers
+//!#helpers: start
+//!#helpers: end
 
-//@@viewOn:propTypes
+//!#propTypes: start
 export type InfoGroupItem = {
   title: React.ReactNode;
   subtitle?: React.ReactNode;
@@ -89,7 +89,7 @@ export const INFO_GROUP_PROP_NAMES = [
   "titleAlign",
   "subtitleAlign",
 ] as const;
-//@@viewOff:propTypes
+//!#propTypes: end
 
 const InfoGroup = ({
   itemList,
@@ -104,16 +104,14 @@ const InfoGroup = ({
   titleAlign = "left",
   subtitleAlign = "left",
 }: InfoGroupProps) => {
-  //@@viewOn:private
+  //!#visualComponent: start
   if (hidden) return null;
 
   // TODO: Implement autoResize functionality
   if (autoResize) {
     // Placeholder for future implementation
   }
-  //@@viewOff:private
-
-  //@@viewOn:render
+  //!#render components: start
   return (
     <div
       className={noPrint ? "no-print" : undefined}
@@ -142,10 +140,11 @@ const InfoGroup = ({
       ))}
     </div>
   );
-  //@@viewOff:render
+  //!#render components: end
+  //!#visualComponent: end
 };
 
-//@@viewOn:exports
+//!#export: start
 export { InfoGroup };
 export default InfoGroup;
-//@@viewOff:exports
+//!#export: end

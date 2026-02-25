@@ -1,12 +1,12 @@
-//@@viewOn:imports
+//!#Imports: start
 import React from "react";
 import { getColorScheme } from "../tools/colors";
-//@@viewOff:imports
+//!#Imports: end
 
-//@@viewOn:constants
-//@@viewOff:constants
+//!#Constants: start
+//!#Constants: end
 
-//@@viewOn:css
+//!#Styles: start
 const Css = {
   wrapper: (
     removeDefaultStyle?: boolean,
@@ -67,12 +67,12 @@ const Css = {
     };
   },
 };
-//@@viewOff:css
+//!#Styles: end
 
-//@@viewOn:helpers
-//@@viewOff:helpers
+//!#helpers: start
+//!#helpers: end
 
-//@@viewOn:propTypes
+//!#propTypes: start
 export type RadiosItem = {
   value: string | number;
   label: React.ReactNode;
@@ -110,7 +110,7 @@ export const RADIOS_PROP_NAMES = [
   "id",
   "direction",
 ] as const;
-//@@viewOff:propTypes
+//!#propTypes: end
 
 const Radios = ({
   style,
@@ -127,13 +127,11 @@ const Radios = ({
   id,
   direction = "column",
 }: RadiosProps) => {
-  //@@viewOn:private
+  //!#visualComponent: start
   if (hidden) return null;
 
   const valueStr = value === undefined || value === null ? "" : String(value);
-  //@@viewOff:private
-
-  //@@viewOn:render
+  //!#render components: start
   return (
     <div
       className={noPrint ? "no-print" : undefined}
@@ -170,10 +168,11 @@ const Radios = ({
       })}
     </div>
   );
-  //@@viewOff:render
+  //!#render components: end
+  //!#visualComponent: end
 };
 
-//@@viewOn:exports
+//!#export: start
 export { Radios };
 export default Radios;
-//@@viewOff:exports
+//!#export: end

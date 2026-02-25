@@ -1,4 +1,4 @@
-//@@viewOn:imports
+//!#Imports: start
 import { useState } from "react";
 import { Documentation, TAB_GROUP_PROP_NAMES, TabGroup, Button, Badge } from "@react-ts-ui-lib/ui";
 import type { TabGroupItem } from "@react-ts-ui-lib/ui";
@@ -6,7 +6,19 @@ import { useTranslation } from "../../i18n/useTranslation";
 import { getPropsWithTranslations } from "../../i18n/getPropsWithTranslations";
 import { useTheme } from "../../app/context/ThemeContext";
 import DocSeo from "../../app/DocSeo";
-//@@viewOff:imports
+//!#Imports: end
+
+//!#Constants: start
+//!#Constants: end
+
+//!#Styles: start
+//!#Styles: end
+
+//!#helpers: start
+//!#helpers: end
+
+//!#propTypes: start
+//!#propTypes: end
 
 const TAB_GROUP_EXAMPLE_CODE = `<TabGroup
   itemList={tabsList}
@@ -15,9 +27,8 @@ const TAB_GROUP_EXAMPLE_CODE = `<TabGroup
   darkMode={darkMode}
 />`;
 
-//@@viewOn:component
 const TabGroupDoc = () => {
-  //@@viewOn:private
+  //!#visualComponent: start
   const { darkMode } = useTheme();
   const { t } = useTranslation();
   const propTypesList = getPropsWithTranslations("tabgroup", TAB_GROUP_PROP_NAMES, t);
@@ -292,12 +303,12 @@ const TabGroupDoc = () => {
       ],
     },
   ];
-  //@@viewOff:private
+  //!#visualComponent: end
 
   const pageTitle = t("tabgroup.title");
   const description = t("tabgroup.basicInfo.description");
 
-  //@@viewOn:render
+  //!#render components: start
   return (
     <div>
       <DocSeo title={pageTitle} description={description} />
@@ -336,11 +347,11 @@ const TabGroupDoc = () => {
       />
     </div>
   );
-  //@@viewOff:render
+  //!#render components: end
+  //!#visualComponent: end
 };
-//@@viewOff:component
 
-//@@viewOn:exports
+//!#export: start
 export { TabGroupDoc };
 export default TabGroupDoc;
-//@@viewOff:exports
+//!#export: end

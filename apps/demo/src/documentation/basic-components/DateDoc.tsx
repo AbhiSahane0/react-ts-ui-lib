@@ -1,11 +1,23 @@
-//@@viewOn:imports
+//!#Imports: start
 import { Documentation, DATE_PROP_NAMES, Date as DateComponent } from "@react-ts-ui-lib/ui";
 import { useTranslation } from "../../i18n/useTranslation";
 import { getPropsWithTranslations } from "../../i18n/getPropsWithTranslations";
 import { useTheme } from "../../app/context/ThemeContext";
 import { useState } from "react";
 import DocSeo from "../../app/DocSeo";
-//@@viewOff:imports
+//!#Imports: end
+
+//!#Constants: start
+//!#Constants: end
+
+//!#Styles: start
+//!#Styles: end
+
+//!#helpers: start
+//!#helpers: end
+
+//!#propTypes: start
+//!#propTypes: end
 
 const DATE_EXAMPLE_CODE = `<Date
   value={new Date()}
@@ -14,9 +26,8 @@ const DATE_EXAMPLE_CODE = `<Date
   darkMode={darkMode}
 />`;
 
-//@@viewOn:component
 const DateDoc = () => {
-  //@@viewOn:private
+  //!#visualComponent: start
   const { darkMode } = useTheme();
   const { t } = useTranslation();
   const propTypesList = getPropsWithTranslations("date", DATE_PROP_NAMES, t);
@@ -25,6 +36,7 @@ const DateDoc = () => {
   const [requiredValue, setRequiredValue] = useState("");
   const [errorValue, setErrorValue] = useState("");
   const [hasError, setHasError] = useState(false);
+  const [rangeValue, setRangeValue] = useState("");
 
   const componentList = [
     {
@@ -133,13 +145,31 @@ const DateDoc = () => {
         },
       ],
     },
+    {
+      category: t("date.categories.range"),
+      itemList: [
+        {
+          label: t("date.examples.minMax"),
+          components: (
+            <DateComponent
+              label={t("date.examples.minMaxLabel")}
+              value={rangeValue}
+              onChange={(e) => setRangeValue(e.target.value)}
+              min="2024-01-10"
+              max="2024-01-15"
+              darkMode={darkMode}
+            />
+          ),
+        },
+      ],
+    },
   ];
-  //@@viewOff:private
+  //!#visualComponent: end
 
   const pageTitle = t("date.title");
   const description = t("date.basicInfo.description");
 
-  //@@viewOn:render
+  //!#render components: start
   return (
     <div>
       <DocSeo title={pageTitle} description={description} />
@@ -178,11 +208,11 @@ const DateDoc = () => {
       />
     </div>
   );
-  //@@viewOff:render
+  //!#render components: end
+  //!#visualComponent: end
 };
-//@@viewOff:component
 
-//@@viewOn:exports
+//!#export: start
 export { DateDoc };
 export default DateDoc;
-//@@viewOff:exports
+//!#export: end

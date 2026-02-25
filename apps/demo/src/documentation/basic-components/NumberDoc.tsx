@@ -1,10 +1,22 @@
-//@@viewOn:imports
+//!#Imports: start
 import { Documentation, NUMBER_PROP_NAMES, Number } from "@react-ts-ui-lib/ui";
 import { useTranslation } from "../../i18n/useTranslation";
 import { getPropsWithTranslations } from "../../i18n/getPropsWithTranslations";
 import { useTheme } from "../../app/context/ThemeContext";
 import DocSeo from "../../app/DocSeo";
-//@@viewOff:imports
+//!#Imports: end
+
+//!#Constants: start
+//!#Constants: end
+
+//!#Styles: start
+//!#Styles: end
+
+//!#helpers: start
+//!#helpers: end
+
+//!#propTypes: start
+//!#propTypes: end
 
 const NUMBER_EXAMPLE_CODE = `<Number
   value={12345.678}
@@ -12,9 +24,8 @@ const NUMBER_EXAMPLE_CODE = `<Number
   darkMode={darkMode}
 />`;
 
-//@@viewOn:component
 const NumberDoc = () => {
-  //@@viewOn:private
+  //!#visualComponent: start
   const { darkMode } = useTheme();
   const { t } = useTranslation();
   const propTypesList = getPropsWithTranslations(
@@ -124,12 +135,12 @@ const NumberDoc = () => {
       ],
     },
   ];
-  //@@viewOff:private
+  //!#visualComponent: end
 
   const pageTitle = t("number.title");
   const description = t("number.basicInfo.description");
 
-  //@@viewOn:render
+  //!#render components: start
   return (
     <div>
       <DocSeo title={pageTitle} description={description} />
@@ -163,11 +174,11 @@ const NumberDoc = () => {
       />
     </div>
   );
-  //@@viewOff:render
+  //!#render components: end
+  //!#visualComponent: end
 };
-//@@viewOff:component
 
-//@@viewOn:exports
+//!#export: start
 export { NumberDoc };
 export default NumberDoc;
-//@@viewOff:exports
+//!#export: end

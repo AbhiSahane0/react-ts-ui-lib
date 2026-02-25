@@ -1,14 +1,25 @@
-//@@viewOn:imports
+//!#Imports: start
 import{ useState } from "react";
 import { Button, UtilityDocumentation } from "@react-ts-ui-lib/ui";
 import { getMostFrequentValue } from "@react-ts-ui-lib/utilities";
 import { useTheme } from "../../app/context/ThemeContext";
 import { useTranslation } from "../../i18n/useTranslation";
-//@@viewOff:imports
+//!#Imports: end
 
-//@@viewOn:component
+//!#Constants: start
+//!#Constants: end
+
+//!#Styles: start
+//!#Styles: end
+
+//!#helpers: start
+//!#helpers: end
+
+//!#propTypes: start
+//!#propTypes: end
+
 const GetMostFrequentValueDoc = () => {
-  //@@viewOn:private
+  //!#visualComponent: start
   const { darkMode } = useTheme();
   const { t } = useTranslation();
   const [itemsInput, setItemsInput] = useState("apple, banana, apple, orange, banana, apple");
@@ -200,10 +211,7 @@ const GetMostFrequentValueDoc = () => {
       code: t("getMostFrequentValue.usage.withObjects.code"),
     },
   ];
-
-  //@@viewOff:private
-
-  //@@viewOn:render
+  //!#render components: start
   return (
     <UtilityDocumentation
       title={t("getMostFrequentValue.title")}
@@ -221,11 +229,11 @@ const GetMostFrequentValueDoc = () => {
       darkMode={darkMode}
     />
   );
-  //@@viewOff:render
+  //!#render components: end
+  //!#visualComponent: end
 };
-//@@viewOff:component
 
-//@@viewOn:exports
+//!#export: start
 export { GetMostFrequentValueDoc };
 export default GetMostFrequentValueDoc;
-//@@viewOff:exports
+//!#export: end

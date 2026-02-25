@@ -1,8 +1,8 @@
-//@@viewOn:imports
+//  Imports - start
 import type { Auth, GoogleAuthProvider } from "firebase/auth";
-//@@viewOff:imports
+//  Imports - end
 
-//@@viewOn:constants
+//  Default Constants - start
 // Firebase configuration (public)
 const firebaseConfig = {
   apiKey: "AIzaSyBLipHjriMRGRQ24eCn6LDw3Vvnpz95yp8",
@@ -14,9 +14,9 @@ const firebaseConfig = {
 };
 
 export const isFirebaseConfigured = true;
-//@@viewOff:constants
+//  Default Constants - end
 
-//@@viewOn:initialization
+//  initialization - start
 let firebasePromise:
   | Promise<{
       auth: Auth;
@@ -47,4 +47,4 @@ export const getFirebaseAuth = async () => {
 
   return firebasePromise;
 };
-//@@viewOff:initialization
+//  initialization - end

@@ -1,4 +1,4 @@
-//@@viewOn:imports
+//!#Imports: start
 import { Documentation, RADIOS_PROP_NAMES, Radios } from "@react-ts-ui-lib/ui";
 import type { RadiosItem } from "@react-ts-ui-lib/ui";
 import { useTranslation } from "../../i18n/useTranslation";
@@ -6,7 +6,19 @@ import { getPropsWithTranslations } from "../../i18n/getPropsWithTranslations";
 import { useTheme } from "../../app/context/ThemeContext";
 import { useState } from "react";
 import DocSeo from "../../app/DocSeo";
-//@@viewOff:imports
+//!#Imports: end
+
+//!#Constants: start
+//!#Constants: end
+
+//!#Styles: start
+//!#Styles: end
+
+//!#helpers: start
+//!#helpers: end
+
+//!#propTypes: start
+//!#propTypes: end
 
 const RADIOS_EXAMPLE_CODE = `<Radios
   name="choice"
@@ -19,9 +31,8 @@ const RADIOS_EXAMPLE_CODE = `<Radios
   darkMode={darkMode}
 />`;
 
-//@@viewOn:component
 const RadiosDoc = () => {
-  //@@viewOn:private
+  //!#visualComponent: start
   const { darkMode } = useTheme();
   const { t } = useTranslation();
   const propTypesList = getPropsWithTranslations("radios", RADIOS_PROP_NAMES, t);
@@ -86,12 +97,12 @@ const RadiosDoc = () => {
       ],
     },
   ];
-  //@@viewOff:private
+  //!#visualComponent: end
 
   const pageTitle = t("radios.title");
   const description = t("radios.basicInfo.description");
 
-  //@@viewOn:render
+  //!#render components: start
   return (
     <div>
       <DocSeo title={pageTitle} description={description} />
@@ -131,11 +142,11 @@ const RadiosDoc = () => {
       />
     </div>
   );
-  //@@viewOff:render
+  //!#render components: end
+  //!#visualComponent: end
 };
-//@@viewOff:component
 
-//@@viewOn:exports
+//!#export: start
 export { RadiosDoc };
 export default RadiosDoc;
-//@@viewOff:exports
+//!#export: end

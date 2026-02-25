@@ -1,48 +1,43 @@
-//@@viewOn:imports
+//!#Imports: start
 import React, { useState } from "react";
-import { getColorScheme, getBorderColor } from "../tools/colors";
+import { getColorScheme, type ColorScheme } from "../tools/colors";
 import { getRadiusValue, type RadiusToken } from "../tools/radius";
 import Icon from "./Icon";
-//@@viewOff:imports
+//!#Imports: end
 
-//@@viewOn:constants
+//!#Constants: start
 const ICON_COPY = "mdi-content-copy";
 const ICON_CHECK = "mdi-check";
-//@@viewOff:constants
+//!#Constants: end
 
-//@@viewOn:css
+//!#Styles: start
 const Css = {
-  button: (
-    darkMode: boolean,
+  container: (): React.CSSProperties => ({
+    display: "inline-flex",
+    alignItems: "center",
+    gap: 8,
+  }),
+  iconWrapper: (
+    scheme: ReturnType<typeof getColorScheme>,
     borderRadiusValue: number,
-    success: boolean,
-  ): React.CSSProperties => {
-    const scheme = getColorScheme(success ? "success" : "primary", darkMode);
-    const borderColor = getBorderColor(darkMode);
-    return {
-      display: "inline-flex",
-      alignItems: "center",
-      justifyContent: "center",
-      gap: 8,
-      padding: "8px 14px",
-      border: `1px solid ${borderColor}`,
-      borderRadius: borderRadiusValue,
-      background: scheme.color,
-      color: scheme.textColor,
-      cursor: "pointer",
-      fontWeight: 600,
-      fontSize: 14,
-      outline: "none",
-      transition: "background 0.2s ease, color 0.2s ease",
-    };
-  },
+  ): React.CSSProperties => ({
+    display: "inline-flex",
+    alignItems: "center",
+    justifyContent: "center",
+    padding: 6,
+    borderRadius: borderRadiusValue,
+    background: scheme.color,
+    color: scheme.textColor,
+    cursor: "pointer",
+    transition: "background 0.2s ease, color 0.2s ease",
+  }),
 };
-//@@viewOff:css
+//!#Styles: end
 
-//@@viewOn:helpers
-//@@viewOff:helpers
+//!#helpers: start
+//!#helpers: end
 
-//@@viewOn:propTypes
+//!#propTypes: start
 export type CopyToClipboardProps = {
   text: string;
   onCopy: (text: string) => Promise<boolean>;
@@ -52,6 +47,7 @@ export type CopyToClipboardProps = {
   style?: React.CSSProperties;
   removeDefaultStyle?: boolean;
   borderRadius?: RadiusToken;
+  backgroundColorScheme?: ColorScheme | null;
 };
 
 export const COPY_TO_CLIPBOARD_PROP_NAMES = [
@@ -63,8 +59,9 @@ export const COPY_TO_CLIPBOARD_PROP_NAMES = [
   "style",
   "removeDefaultStyle",
   "borderRadius",
+  "backgroundColorScheme",
 ] as const;
-//@@viewOff:propTypes
+//!#propTypes: end
 
 const CopyToClipboard = ({
   text,
@@ -75,8 +72,9 @@ const CopyToClipboard = ({
   style,
   removeDefaultStyle = false,
   borderRadius = "md",
+  backgroundColorScheme = "background",
 }: CopyToClipboardProps) => {
-  //@@viewOn:private
+  //!#visualComponent: start
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
 
   const handleClick = async () => {
@@ -87,45 +85,88 @@ const CopyToClipboard = ({
 
   const borderRadiusValue = getRadiusValue(borderRadius);
   const success = status === "success";
-  //@@viewOff:private
 
-  //@@viewOn:render
-  const content = children ?? (
+  const hasBackground =
+    !removeDefaultStyle && backgroundColorScheme !== null && backgroundColorScheme !== undefined;
+
+  const resolvedBackgroundScheme =
+    hasBackground && backgroundColorScheme
+      ? getColorScheme(backgroundColorScheme, darkMode)
+      : null;
+  //!#render components: start
+  const iconContent = (
+    <Icon
+      icon={success ? ICON_CHECK : ICON_COPY}
+      size="sm"
+      color={resolvedBackgroundScheme ? resolvedBackgroundScheme.textColor : undefined}
+      darkMode={darkMode}
+      onClick={async (event) => {
+        event.stopPropagation();
+        await handleClick();
+      }}
+    />
+  );
+
+  const iconWithBackground = hasBackground && resolvedBackgroundScheme ? (
+    <div
+      style={Css.iconWrapper(resolvedBackgroundScheme, borderRadiusValue)}
+      onClick={handleClick}
+    >
+      {iconContent}
+    </div>
+  ) : (
+    iconContent
+  );
+
+  const defaultContent = (
     <>
-      <Icon
-        icon={success ? ICON_CHECK : ICON_COPY}
-        size="sm"
-        color={success ? undefined : "currentColor"}
-      />
-      <span>{label}</span>
+      {iconWithBackground}
+      {label && <span>{label}</span>}
     </>
   );
 
+  const content = children ?? defaultContent;
+
   if (removeDefaultStyle) {
     return (
-      <button
-        type="button"
+      <span
         style={style}
-        onClick={handleClick}
         aria-label={typeof label === "string" ? label : "Copy to clipboard"}
+        role="button"
+        onClick={handleClick}
       >
-        {content}
-      </button>
+        {children ?? (
+          <>
+            <Icon
+              icon={success ? ICON_CHECK : ICON_COPY}
+              size="sm"
+              onClick={async (event) => {
+                event.stopPropagation();
+                await handleClick();
+              }}
+            />
+            {label && <span>{label}</span>}
+          </>
+        )}
+      </span>
     );
   }
 
   return (
-    <button
-      type="button"
-      style={{ ...Css.button(darkMode, borderRadiusValue, success), ...style }}
-      onClick={handleClick}
+    <span
+      style={{ ...Css.container(), ...style }}
       aria-label={typeof label === "string" ? label : "Copy to clipboard"}
+      role="button"
+      onClick={handleClick}
     >
       {content}
-    </button>
+    </span>
   );
-  //@@viewOff:render
+  //!#render components: end
+  //!#visualComponent: end
 };
 
+//!#export: start
 export { CopyToClipboard };
 export default CopyToClipboard;
+//!#export: end

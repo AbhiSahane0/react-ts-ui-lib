@@ -1,13 +1,13 @@
-//@@viewOn:imports
+//!#Imports: start
 import React from "react";
 import { getColorScheme, getBorderColor, type ColorScheme } from "../tools/colors";
 import { getLabelSize, type LabelSizeToken } from "../tools/labelSize";
-//@@viewOff:imports
+//!#Imports: end
 
-//@@viewOn:constants
-//@@viewOff:constants
+//!#Constants: start
+//!#Constants: end
 
-//@@viewOn:css
+//!#Styles: start
 const Css = {
   label: (
     removeDefaultStyle?: boolean,
@@ -44,12 +44,12 @@ const Css = {
     };
   },
 };
-//@@viewOff:css
+//!#Styles: end
 
-//@@viewOn:helpers
-//@@viewOff:helpers
+//!#helpers: start
+//!#helpers: end
 
-//@@viewOn:propTypes
+//!#propTypes: start
 export type LabelProps = {
   style?: React.CSSProperties;
   noPrint?: boolean;
@@ -76,7 +76,7 @@ export const LABEL_PROP_NAMES = [
   "tooltip",
   "block",
 ] as const;
-//@@viewOff:propTypes
+//!#propTypes: end
 
 const Label = ({
   style,
@@ -90,9 +90,8 @@ const Label = ({
   tooltip,
   block = false,
 }: LabelProps) => {
-  //@@viewOn:private
+  //!#visualComponent: start
   if (hidden) return null;
-  //@@viewOff:private
 
   const labelStyle = Css.label(removeDefaultStyle, darkMode, size, colorScheme);
   const span = (
@@ -101,7 +100,7 @@ const Label = ({
     </span>
   );
 
-  //@@viewOn:render
+  //!#render components: start
   if (block) {
     return (
       <div
@@ -122,10 +121,11 @@ const Label = ({
       {children}
     </span>
   );
-  //@@viewOff:render
+  //!#render components: end
+  //!#visualComponent: end
 };
 
-//@@viewOn:exports
+//!#export: start
 export { Label };
 export default Label;
-//@@viewOff:exports
+//!#export: end

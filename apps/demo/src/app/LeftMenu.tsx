@@ -1,21 +1,21 @@
-//@@viewOn:imports
+//!#Imports: start
 import React, { useMemo } from "react";
 import { SideBar } from "@react-ts-ui-lib/ui";
 import type { SideBarItem } from "@react-ts-ui-lib/ui";
 import { getRouteList } from "../app/tools/RouteList";
 import { useTranslation } from "../i18n/useTranslation";
-//@@viewOff:imports
+//!#Imports: end
 
-//@@viewOn:constants
-//@@viewOff:constants
+//!#Constants: start
+//!#Constants: end
 
-//@@viewOn:css
-//@@viewOff:css
+//!#Styles: start
+//!#Styles: end
 
-//@@viewOn:helpers
-//@@viewOff:helpers
+//!#helpers: start
+//!#helpers: end
 
-//@@viewOn:propTypes
+//!#propTypes: start
 type LeftMenuPropTypes = {
   setSelectedItem: React.Dispatch<React.SetStateAction<SideBarItem | null>>;
   selectedItem: SideBarItem | null;
@@ -25,7 +25,7 @@ type LeftMenuPropTypes = {
   onClose?: () => void;
   navbarHeight?: number;
 };
-//@@viewOff:propTypes
+//!#propTypes: end
 
 const LeftMenu = ({
   setSelectedItem,
@@ -36,7 +36,7 @@ const LeftMenu = ({
   onClose,
   navbarHeight,
 }: LeftMenuPropTypes) => {
-  //@@viewOn:private
+  //!#visualComponent: start
   const { t } = useTranslation();
   const routeList = useMemo(() => getRouteList(t), [t]);
 
@@ -51,9 +51,7 @@ const LeftMenu = ({
     };
     setSelectedItem(cleanItem);
   };
-  //@@viewOff:private
-
-  //@@viewOn:render
+  //!#render components: start
   return (
     <SideBar
       itemList={routeList}
@@ -67,10 +65,11 @@ const LeftMenu = ({
       sortNestedItems={true}
     />
   );
-  //@@viewOff:render
+  //!#render components: end
+  //!#visualComponent: end
 };
 
-//@@viewOn:exports
+//!#export: start
 export { LeftMenu };
 export default LeftMenu;
-//@@viewOff:exports
+//!#export: end

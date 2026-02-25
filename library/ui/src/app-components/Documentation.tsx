@@ -1,5 +1,5 @@
 /* eslint-disable react-refresh/only-export-components */
-//@@viewOn:imports
+//!#Imports: start
 import React, { useState } from "react";
 import Block from "../basic-components/Block";
 import Label from "../basic-components/Label";
@@ -13,10 +13,9 @@ import {
   type ColorScheme,
 } from "../tools/colors";
 
+//!#Imports: end
 
-//@@viewOff:imports 
-
-//@@viewOn:constants
+//!#Constants: start
 const BASIC_INFO = "basicInfo";
 const PROP_TYPES = "propTypes";
 const USAGE = "usage";
@@ -31,10 +30,9 @@ const STATES: Record<
   inProgress: "info",
   draft: "muted",
 };
+//!#Constants: end
 
-//@@viewOff:constants
-
-//@@viewOn:css
+//!#Styles: start
 const Css = {
   section: (): React.CSSProperties => ({
     marginTop: 0,
@@ -136,9 +134,9 @@ const Css = {
     boxShadow: "0 8px 24px rgba(0,0,0,0.12)",
   }),
 };
-//@@viewOff:css
+//!#Styles: end
 
-//@@viewOn:helpers
+//!#helpers: start
 export type DocItem = {
   label: string;
   components: React.ReactNode;
@@ -154,9 +152,9 @@ export type BasicInfo = {
   exampleCode: string;
   preview: React.ReactNode;
 };
-//@@viewOff:helpers
+//!#helpers: end
 
-//@@viewOn:propTypes
+//!#propTypes: start
 export const DocumentationTypeScheme = {
   title: {
     name: "title",
@@ -223,7 +221,7 @@ export type DocumentationProps = {
   darkMode?: boolean;
   state?: "production" | "nearlyReady" | "inProgress" | "draft";
 };
-//@@viewOff:propTypes
+//!#propTypes: end
 
 const Documentation = ({
   title,
@@ -249,7 +247,7 @@ const Documentation = ({
   state = "draft",
 }: DocumentationProps) => {
 
-  //@@viewOn:private
+  //!#visualComponent: start
   const [activeTab, setActiveTab] = useState<string>(BASIC_INFO);
   const borderColor = getBorderColor(darkMode);
   const mutedColor = getColorScheme("muted", darkMode).color;
@@ -380,12 +378,7 @@ const Documentation = ({
     },
 
   ];
-
-  //@@viewOff:private
-
-  //@@viewOn:render
-
-
+  //!#render components: start
   return (
     <div>
       <Box darkMode={darkMode} style={Css.box()} borderRadius="none" borderTop={false} borderLeft={false} borderRight={false}   >
@@ -402,10 +395,11 @@ const Documentation = ({
       />
     </div>
   );
-  //@@viewOff:render
+  //!#render components: end
+  //!#visualComponent: end
 };
 
-//@@viewOn:exports
+//!#export: start
 export { Documentation };
 export default Documentation;
-//@@viewOff:exports
+//!#export: end

@@ -1,4 +1,4 @@
-//@@viewOn:imports
+//!#Imports: start
 import {
   Documentation,
   ICON_PROP_NAMES,
@@ -8,7 +8,19 @@ import { useTranslation } from "../../i18n/useTranslation";
 import { getPropsWithTranslations } from "../../i18n/getPropsWithTranslations";
 import { useTheme } from "../../app/context/ThemeContext";
 import DocSeo from "../../app/DocSeo";
-//@@viewOff:imports
+//!#Imports: end
+
+//!#Constants: start
+//!#Constants: end
+
+//!#Styles: start
+//!#Styles: end
+
+//!#helpers: start
+//!#helpers: end
+
+//!#propTypes: start
+//!#propTypes: end
 
 const ICON_EXAMPLE_CODE = `<Icon
   icon="mdi-check"
@@ -16,9 +28,8 @@ const ICON_EXAMPLE_CODE = `<Icon
   darkMode={darkMode}
 />`;
 
-//@@viewOn:component
 const IconDoc = () => {
-  //@@viewOn:private
+  //!#visualComponent: start
   const { darkMode } = useTheme();
   const { t } = useTranslation();
   const propTypesList = getPropsWithTranslations("icon", ICON_PROP_NAMES, t);
@@ -57,17 +68,53 @@ const IconDoc = () => {
       ],
     },
     {
+      category: t("icon.categories.sizeWithLabels"),
+      itemList: [
+        {
+          label: t("icon.examples.sizeWithLabels"),
+          components: (
+            <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+              <UiIcon
+                icon="mdi-check"
+                size="xs"
+                label={`${t("icon.examples.labelForValue")} ${t("icon.examples.xs")}`}
+                darkMode={darkMode}
+              />
+              <UiIcon
+                icon="mdi-check"
+                size="sm"
+                label={`${t("icon.examples.labelForValue")} ${t("icon.examples.sm")}`}
+                darkMode={darkMode}
+              />
+              <UiIcon
+                icon="mdi-check"
+                size="md"
+                label={`${t("icon.examples.labelForValue")} ${t("icon.examples.md")}`}
+                darkMode={darkMode}
+              />
+              <UiIcon
+                icon="mdi-check"
+                size="lg"
+                label={`${t("icon.examples.labelForValue")} ${t("icon.examples.lg")}`}
+                darkMode={darkMode}
+              />
+              <UiIcon
+                icon="mdi-check"
+                size="xl"
+                label={`${t("icon.examples.labelForValue")} ${t("icon.examples.xl")}`}
+                darkMode={darkMode}
+              />
+            </div>
+          ),
+        },
+      ],
+    },
+    {
       category: t("icon.categories.basic"),
       itemList: [
         {
           label: t("icon.examples.default"),
           components: <UiIcon icon="mdi-check" darkMode={darkMode} />,
-        },
-        {
-          label: t("icon.examples.red"),
-          components: (
-            <UiIcon icon="mdi-heart" color="#ef4444" darkMode={darkMode} />
-          ),
         },
         {
           label: t("icon.examples.label"),
@@ -85,6 +132,128 @@ const IconDoc = () => {
             <UiIcon
               icon="mdi-help-circle"
               tooltip={t("icon.examples.help")}
+              darkMode={darkMode}
+            />
+          ),
+        },
+      ],
+    },
+    {
+      category: t("icon.categories.colors"),
+      itemList: [
+        {
+          label: t("icon.examples.primary"),
+          components: (
+            <UiIcon icon="mdi-information" colorScheme="primary" darkMode={darkMode} />
+          ),
+        },
+        {
+          label: t("icon.examples.success"),
+          components: (
+            <UiIcon icon="mdi-check-circle" colorScheme="success" darkMode={darkMode} />
+          ),
+        },
+        {
+          label: t("icon.examples.warning"),
+          components: (
+            <UiIcon icon="mdi-alert" colorScheme="warning" darkMode={darkMode} />
+          ),
+        },
+        {
+          label: t("icon.examples.danger"),
+          components: (
+            <UiIcon icon="mdi-alert-circle" colorScheme="danger" darkMode={darkMode} />
+          ),
+        },
+        {
+          label: t("icon.examples.infoColor"),
+          components: (
+            <UiIcon icon="mdi-information" colorScheme="info" darkMode={darkMode} />
+          ),
+        },
+        {
+          label: t("icon.examples.purple"),
+          components: (
+            <UiIcon icon="mdi-star" colorScheme="purple" darkMode={darkMode} />
+          ),
+        },
+        {
+          label: t("icon.examples.teal"),
+          components: (
+            <UiIcon icon="mdi-check-circle" colorScheme="teal" darkMode={darkMode} />
+          ),
+        },
+        {
+          label: t("icon.examples.pink"),
+          components: (
+            <UiIcon icon="mdi-heart" colorScheme="pink" darkMode={darkMode} />
+          ),
+        },
+        {
+          label: t("icon.examples.indigo"),
+          components: (
+            <UiIcon icon="mdi-star" colorScheme="indigo" darkMode={darkMode} />
+          ),
+        },
+        {
+          label: t("icon.examples.orange"),
+          components: (
+            <UiIcon icon="mdi-alert" colorScheme="orange" darkMode={darkMode} />
+          ),
+        },
+        {
+          label: t("icon.examples.cyan"),
+          components: (
+            <UiIcon icon="mdi-information" colorScheme="cyan" darkMode={darkMode} />
+          ),
+        },
+        {
+          label: t("icon.examples.gold"),
+          components: (
+            <UiIcon icon="mdi-star" colorScheme="gold" darkMode={darkMode} />
+          ),
+        },
+        {
+          label: t("icon.examples.silver"),
+          components: (
+            <UiIcon icon="mdi-star" colorScheme="silver" darkMode={darkMode} />
+          ),
+        },
+        {
+          label: t("icon.examples.bronze"),
+          components: (
+            <UiIcon icon="mdi-star" colorScheme="bronze" darkMode={darkMode} />
+          ),
+        },
+        {
+          label: t("icon.examples.customColor"),
+          components: (
+            <UiIcon icon="mdi-heart" color="#ec4899" darkMode={darkMode} />
+          ),
+        },
+      ],
+    },
+    {
+      category: t("icon.categories.labels"),
+      itemList: [
+        {
+          label: t("icon.examples.primaryLabel"),
+          components: (
+            <UiIcon
+              icon="mdi-information"
+              colorScheme="primary"
+              label={t("icon.examples.primary")}
+              darkMode={darkMode}
+            />
+          ),
+        },
+        {
+          label: t("icon.examples.successLabel"),
+          components: (
+            <UiIcon
+              icon="mdi-check-circle"
+              colorScheme="success"
+              label={t("icon.examples.success")}
               darkMode={darkMode}
             />
           ),
@@ -159,9 +328,7 @@ const IconDoc = () => {
       ],
     },
   ];
-  //@@viewOff:private
-
-  //@@viewOn:render
+  //!#render components: start
   return (
     <div>
       <DocSeo title={pageTitle} description={description} />
@@ -195,11 +362,11 @@ const IconDoc = () => {
       />
     </div>
   );
-  //@@viewOff:render
+  //!#render components: end
+  //!#visualComponent: end
 };
-//@@viewOff:component
 
-//@@viewOn:exports
+//!#export: start
 export { IconDoc as Icon };
 export default IconDoc;
-//@@viewOff:exports
+//!#export: end

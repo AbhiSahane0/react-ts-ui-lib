@@ -1,12 +1,12 @@
-//@@viewOn:imports
+//!#Imports: start
 import { type ColorScheme, getColorScheme } from "../tools/colors";
 import { getPendingSize, type SizeToken } from "../tools/size";
-//@@viewOff:imports
+//!#Imports: end
 
-//@@viewOn:constants
-//@@viewOff:constants
+//!#Constants: start
+//!#Constants: end
 
-//@@viewOn:css
+//!#Styles: start
 const Css = {
   // accept ColorScheme and darkMode so color mapping works as expected
   pending: (colorScheme: ColorScheme, darkMode = true) => {
@@ -19,12 +19,12 @@ const Css = {
     };
   },
 };
-//@@viewOff:css
+//!#Styles: end
 
-//@@viewOn:helpers
-//@@viewOff:helpers
+//!#helpers: start
+//!#helpers: end
 
-//@@viewOn:propTypes
+//!#propTypes: start
 export type PendingProps = {
   style?: React.CSSProperties;
   type?: "circular" | "horizontal";
@@ -43,7 +43,7 @@ export const PENDING_PROP_NAMES = [
   "colorScheme",
   "animationSpeed",
 ] as const;
-//@@viewOff:propTypes
+//!#propTypes: end
 
 const Pending = ({
   style,
@@ -53,6 +53,7 @@ const Pending = ({
   colorScheme = "primary",
   animationSpeed = 1,
 }: PendingProps) => {
+  //!#visualComponent: start
   const pendingSize = getPendingSize(size as SizeToken).size;
 
   const mutedScheme = getColorScheme("muted", darkMode);
@@ -71,7 +72,7 @@ const Pending = ({
     const innerWidth = Math.max(12, Math.floor(trackWidth * 0.28));
     const startX = -innerWidth;
 
-    //@@viewOn:render
+    //!#render components: start
     return (
       <svg
         width={trackWidth}
@@ -145,10 +146,11 @@ const Pending = ({
       </path>
     </svg>
   );
+  //!#render components: end
+  //!#visualComponent: end
 };
-//@@viewOff:render
 
-//@@viewOn:exports
+//!#export: start
 export { Pending };
 export default Pending;
-//@@viewOff:exports
+//!#export: end

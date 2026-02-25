@@ -1,14 +1,14 @@
-//@@viewOn:imports
+//!#Imports: start
 import React from "react";
 import { getBorderColor } from "../tools/colors";
 import { getRadiusValue, type RadiusToken } from "../tools/radius";
-//@@viewOff:imports
+//!#Imports: end
 
-//@@viewOn:constants
+//!#Constants: start
 const DEFAULT_PADDING = 16;
-//@@viewOff:constants
+//!#Constants: end
 
-//@@viewOn:css
+//!#Styles: start
 const Css = {
   box: (
     removeDefaultStyle: boolean,
@@ -35,9 +35,12 @@ const Css = {
     };
   },
 };
-//@@viewOff:css
+//!#Styles: end
 
-//@@viewOn:propTypes
+//!#helpers: start
+//!#helpers: end
+
+//!#propTypes: start
 export type BoxProps = {
   children?: React.ReactNode;
   style?: React.CSSProperties;
@@ -73,9 +76,8 @@ export const BOX_PROP_NAMES = [
   "padding",
   "borderRadius",
 ] as const;
-//@@viewOff:propTypes
+//!#propTypes: end
 
-//@@viewOn:component
 const Box = ({
   children,
   style,
@@ -90,6 +92,7 @@ const Box = ({
   padding = DEFAULT_PADDING,
   borderRadius = "md",
 }: BoxProps) => {
+  //!#visualComponent: start
   if (hidden) return null;
 
   const borderColor = getBorderColor(darkMode);
@@ -106,6 +109,7 @@ const Box = ({
     padding,
   );
 
+  //!#render components: start
   return (
     <div
       className={noPrint ? "no-print" : undefined}
@@ -114,10 +118,11 @@ const Box = ({
       {children}
     </div>
   );
+  //!#render components: end
+  //!#visualComponent: end
 };
-//@@viewOff:component
 
-//@@viewOn:exports
+//!#export: start
 export { Box };
 export default Box;
-//@@viewOff:exports
+//!#export: end

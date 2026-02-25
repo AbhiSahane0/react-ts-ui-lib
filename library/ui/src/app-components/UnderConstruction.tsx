@@ -1,23 +1,32 @@
-//@@viewOn:imports
+//!#Imports: start
 import React from "react";
 import { getColorScheme, getBorderColor } from "../tools/colors";
-//@@viewOff:imports
+//!#Imports: end
 
-//@@viewOn:component
+//!#Constants: start
+//!#Constants: end
+
+//!#helpers: start
+//!#helpers: end
+
+//!#Styles: start
+//!#Styles: end
+
+//!#propTypes: start
+//!#propTypes: end
+
 type UnderConstructionProps = { darkMode?: boolean };
 
 const UnderConstruction: React.FC<UnderConstructionProps> = ({
   darkMode = true,
 }) => {
-  //@@viewOn:private
+  //!#visualComponent: start
   const surfaceScheme = getColorScheme("surface", darkMode);
   const textScheme = getColorScheme("text", darkMode);
   const mutedScheme = getColorScheme("muted", darkMode);
   const accentScheme = getColorScheme("info", darkMode);
   const borderColor = getBorderColor(darkMode);
-  //@@viewOff:private
-
-  //@@viewOn:render
+  //!#render components: start
   return (
     <div
       style={{
@@ -80,11 +89,11 @@ const UnderConstruction: React.FC<UnderConstructionProps> = ({
       </div>
     </div>
   );
-  //@@viewOff:render
+  //!#render components: end
+  //!#visualComponent: end
 };
-//@@viewOff:component
 
-//@@viewOn:exports
+//!#export: start
 export { UnderConstruction };
 export default UnderConstruction;
-//@@viewOff:exports
+//!#export: end

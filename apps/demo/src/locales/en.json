@@ -329,7 +329,7 @@
   "icon": {
     "title": "Icon Component",
     "basicInfo": {
-      "description": "Renders an icon from Material Design Icons (mdi-*). Supports size, color, tooltip and click."
+      "description": "Renders an icon from Material Design Icons (mdi-*). Supports size, themed color schemes (primary, success, etc.), custom color, tooltip and click – all optimized for light and dark mode."
     },
     "props": {
       "icon": {
@@ -343,7 +343,12 @@
         "required": "false"
       },
       "color": {
-        "description": "Icon color (CSS color value).",
+        "description": "Explicit CSS color value for the icon. When provided, it overrides the themed colorScheme.",
+        "type": "string",
+        "required": "false"
+      },
+      "colorScheme": {
+        "description": "Themed color scheme token (primary, success, danger, warning, info, etc.). Used when color is not provided.",
         "type": "string",
         "required": "false"
       },
@@ -385,10 +390,13 @@
     },
     "categories": {
       "size": "Size",
+      "sizeWithLabels": "Size + labels",
       "basic": "Basic",
       "icons": "Icons",
       "states": "States",
-      "darkMode": "Dark mode"
+      "darkMode": "Dark mode",
+      "colors": "Colors",
+      "labels": "Labels"
     },
     "examples": {
       "xs": "xs",
@@ -398,7 +406,25 @@
       "xl": "xl",
       "custom": "custom",
       "default": "default",
-      "red": "red",
+      "primary": "primary",
+      "success": "success",
+      "warning": "warning",
+      "danger": "danger",
+      "customColor": "custom color",
+      "primaryLabel": "primary with label",
+      "successLabel": "success with label",
+      "sizeWithLabels": "sizes with labels",
+      "labelForValue": "Label for value",
+      "infoColor": "info",
+      "purple": "purple",
+      "teal": "teal",
+      "pink": "pink",
+      "indigo": "indigo",
+      "orange": "orange",
+      "cyan": "cyan",
+      "gold": "gold",
+      "silver": "silver",
+      "bronze": "bronze",
       "label": "label",
       "info": "Info",
       "tooltip": "tooltip",
@@ -1024,7 +1050,131 @@
       "withLabel": "With Label",
       "required": "Required",
       "disabled": "Disabled",
-      "noDefault": "No Default Style"
+      "noDefault": "No Default Style",
+      "borderRadius": "Border radius",
+      "placeholder": "Placeholder"
+    }
+  },
+  "basicInfo": {
+    "title": "BasicInfo Component",
+    "basicInfo": {
+      "description": "Card for displaying structured information with title, subtitle, and key-value pairs. Ideal for showing details, properties, or metadata in a clean layout."
+    },
+    "props": {
+      "title": {
+        "description": "Main heading displayed at the top of the card.",
+        "type": "string",
+        "required": "false"
+      },
+      "subtitle": {
+        "description": "Secondary text shown below the title.",
+        "type": "string",
+        "required": "false"
+      },
+      "items": {
+        "description": "Array of objects with label and value properties to display as info rows.",
+        "type": "BasicInfoItem[]",
+        "required": "false"
+      },
+      "content": {
+        "description": "Custom React node rendered in the body section.",
+        "type": "ReactNode",
+        "required": "false"
+      },
+      "actionList": {
+        "description": "Array of components (e.g. buttons) rendered in the footer.",
+        "type": "ReactNode[]",
+        "required": "false"
+      },
+      "darkMode": {
+        "description": "Uses dark mode color palette.",
+        "type": "boolean",
+        "required": "false"
+      },
+      "removeDefaultStyle": {
+        "description": "Removes default styling.",
+        "type": "boolean",
+        "required": "false"
+      },
+      "style": {
+        "description": "Optional inline styles (React.CSSProperties) merged with default styles.",
+        "type": "React.CSSProperties",
+        "required": "false"
+      },
+      "colorScheme": {
+        "description": "Color scheme from theme palette.",
+        "type": "string",
+        "required": "false"
+      },
+      "significance": {
+        "description": "Visual significance: common, highlighted, distinct, subdued.",
+        "type": "string",
+        "required": "false"
+      },
+      "modern": {
+        "description": "Enables modern gradient and shadow styling.",
+        "type": "boolean",
+        "required": "false"
+      },
+      "width": {
+        "description": "Card width (number as px or string, e.g. 320 or \"20rem\"). Default 320.",
+        "type": "string | number",
+        "required": "false"
+      },
+      "height": {
+        "description": "Card height (number as px or string). Optional.",
+        "type": "string | number",
+        "required": "false"
+      },
+      "minWidth": {
+        "description": "Minimum card width.",
+        "type": "string | number",
+        "required": "false"
+      },
+      "minHeight": {
+        "description": "Minimum card height. Default 150 when not set.",
+        "type": "string | number",
+        "required": "false"
+      },
+      "noPrint": {
+        "description": "Hides component when printing.",
+        "type": "boolean",
+        "required": "false"
+      },
+      "hidden": {
+        "description": "If true, component is not rendered.",
+        "type": "boolean",
+        "required": "false"
+      },
+      "borderRadius": {
+        "description": "Predefined border radius token (xs, sm, md, lg, full).",
+        "type": "string",
+        "required": "false"
+      }
+    },
+    "categories": {
+      "basic": "Basic",
+      "withItems": "With Items",
+      "modern": "Modern",
+      "colorScheme": "Color Scheme",
+      "significance": "Significance",
+      "withActions": "With Actions",
+      "darkMode": "Dark Mode"
+    },
+    "examples": {
+      "simple": "Simple",
+      "withItems": "With items",
+      "withContent": "With custom content",
+      "complete": "Complete example",
+      "modernBasic": "Modern",
+      "modernPrimary": "Modern primary",
+      "modernSuccess": "Modern success",
+      "common": "Common",
+      "highlighted": "Highlighted",
+      "dark": "Dark",
+      "light": "Light",
+      "edit": "Edit",
+      "view": "View"
     }
   },
   "profileCard": {
@@ -1622,7 +1772,7 @@
       "withError": "With error",
       "requiredWithError": "Required with error",
       "noDefault": "No default",
-      "basicLabel": "Basic checkbox",
+      "basicLabel": "Example checkbox",
       "termsLabel": "Accept terms and conditions",
       "requiredLabel": "I agree to the terms",
       "disabledLabel": "Disabled checkbox",
@@ -1710,13 +1860,24 @@
         "description": "Error message displayed below input when error is true.",
         "type": "string",
         "required": "false"
+      },
+      "min": {
+        "description": "Minimum allowed date (string in YYYY-MM-DD format or Date instance). Values below will show a range error.",
+        "type": "string | Date",
+        "required": "false"
+      },
+      "max": {
+        "description": "Maximum allowed date (string in YYYY-MM-DD format or Date instance). Values above will show a range error.",
+        "type": "string | Date",
+        "required": "false"
       }
     },
     "categories": {
       "basic": "Basic",
       "states": "States",
       "validation": "Validation",
-      "styling": "Styling"
+      "styling": "Styling",
+      "range": "Range"
     },
     "examples": {
       "basic": "Basic",
@@ -1734,7 +1895,9 @@
       "requiredErrorLabel": "Required field",
       "noDefaultLabel": "No default styling",
       "errorMessage": "This field is required",
-      "requiredErrorMessage": "Please select a date"
+      "requiredErrorMessage": "Please select a date",
+      "minMax": "Min & max date",
+      "minMaxLabel": "Select a date between 2024-01-10 and 2024-01-15"
     }
   },
   "select": {
@@ -1804,7 +1967,8 @@
       "apple": "Apple",
       "banana": "Banana",
       "orange": "Orange",
-      "grape": "Grape"
+      "grape": "Grape",
+      "borderRadius": "Border radius"
     }
   },
   "radios": {
@@ -2148,7 +2312,7 @@
   "copyToClipboard": {
     "title": "Copy to Clipboard",
     "basicInfo": {
-      "description": "Component with a button to copy text to clipboard. Shows confirmation after copy."
+      "description": "Component that renders a clickable copy icon (with optional label) to copy text to clipboard. The icon can have a themed background or no background at all."
     },
     "description": "Utility function for copying text to clipboard using navigator.clipboard API with fallback for older browsers.",
     "success": "Text was copied to clipboard.",
@@ -2162,7 +2326,8 @@
       "copyLabel": "Copy",
       "customLabel": "Custom label",
       "light": "Light mode",
-      "noDefault": "No default style"
+      "noDefault": "No default style",
+      "iconOnly": "Icon only"
     },
     "props": {
       "text": {
@@ -2196,13 +2361,18 @@
         "required": "false"
       },
       "removeDefaultStyle": {
-        "description": "Removes default button styling.",
+        "description": "Removes default layout and background styling; renders only raw icon/label content.",
         "type": "boolean",
         "required": "false"
       },
       "borderRadius": {
-        "description": "Border radius of the button.",
+        "description": "Border radius of the icon background wrapper.",
         "type": "RadiusToken",
+        "required": "false"
+      },
+      "backgroundColorScheme": {
+        "description": "Background color scheme for the icon wrapper. Uses \"background\" by default; set to null to render without any background.",
+        "type": "ColorScheme | null",
         "required": "false"
       }
     },

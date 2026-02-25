@@ -1,23 +1,23 @@
-//@@viewOn:imports
-//@@viewOff:imports
+//  Imports - start
+//  Imports - end
 
-//@@viewOn:constants
-//@@viewOff:constants
+//  Default Constants - start
+//  Default Constants - end
 
-//@@viewOn:css
-//@@viewOff:css
+//  Styles - start
+//  Styles - end
 
-//@@viewOn:helpers
-//@@viewOff:helpers
+//  helpers - start
+//  helpers - end
 
-//@@viewOn:propTypes
-//@@viewOff:propTypes
+//  propTypes - start
+//  propTypes - end
 
-//@@viewOn:private
-//@@viewOff:private
+//  visualComponent - start
+  //  render components - start
+//  render components - end
 
-//@@viewOn:render
-//@@viewOff:render
+  //  visualComponent - end
 
-//@@viewOn:exports
-//@@viewOff:exports
+//  export - start
+//  export - end

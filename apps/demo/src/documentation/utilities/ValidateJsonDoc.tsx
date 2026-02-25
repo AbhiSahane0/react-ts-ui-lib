@@ -1,11 +1,15 @@
-//@@viewOn:imports
+//!#Imports: start
 import { useState } from "react";
 import { Button, UtilityDocumentation } from "@react-ts-ui-lib/ui";
 import { validateJson } from "@react-ts-ui-lib/utilities";
 import { useTheme } from "../../app/context/ThemeContext";
 import { useTranslation } from "../../i18n/useTranslation";
-//@@viewOff:imports
+//!#Imports: end
 
+//!#Constants: start
+//!#Constants: end
+
+//!#Styles: start
 const inputStyle = (darkMode: boolean) => ({
   padding: "8px 12px",
   borderRadius: "4px",
@@ -17,9 +21,16 @@ const inputStyle = (darkMode: boolean) => ({
   minHeight: 80,
   fontFamily: "monospace",
 });
+//!#Styles: end
 
-//@@viewOn:component
+//!#helpers: start
+//!#helpers: end
+
+//!#propTypes: start
+//!#propTypes: end
+
 const ValidateJsonDoc = () => {
+  //!#visualComponent: start
   const { darkMode } = useTheme();
   const { t } = useTranslation();
   const [input, setInput] = useState('{"a": 1, "b": "text"}');
@@ -70,6 +81,7 @@ const ValidateJsonDoc = () => {
     { title: t("validateJson.usage.basic.title"), code: t("validateJson.usage.basic.code") },
   ];
 
+  //!#render components: start
   return (
     <UtilityDocumentation
       title={t("validateJson.title")}
@@ -87,8 +99,11 @@ const ValidateJsonDoc = () => {
       darkMode={darkMode}
     />
   );
+  //!#render components: end
+  //!#visualComponent: end
 };
-//@@viewOff:component
 
+//!#export: start
 export { ValidateJsonDoc };
 export default ValidateJsonDoc;
+//!#export: end

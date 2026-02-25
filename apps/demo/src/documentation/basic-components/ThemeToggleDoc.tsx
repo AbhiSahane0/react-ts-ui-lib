@@ -1,4 +1,4 @@
-//@@viewOn:imports
+//!#Imports: start
 import { useState } from "react";
 import {
   Documentation,
@@ -9,15 +9,26 @@ import { useTranslation } from "../../i18n/useTranslation";
 import { getPropsWithTranslations } from "../../i18n/getPropsWithTranslations";
 import { useTheme } from "../../app/context/ThemeContext";
 import DocSeo from "../../app/DocSeo";
-//@@viewOff:imports
+//!#Imports: end
 
+//!#Constants: start
 const THEME_TOGGLE_EXAMPLE_CODE = `<ThemeToggle
   darkMode={darkMode}
   onToggle={setDarkMode}
 />`;
+//!#Constants: end
 
-//@@viewOn:component
+//!#Styles: start
+//!#Styles: end
+
+//!#helpers: start
+//!#helpers: end
+
+//!#propTypes: start
+//!#propTypes: end
+
 const ThemeToggleDoc = () => {
+  //!#visualComponent: start
   const { darkMode, setDarkMode } = useTheme();
   const { t } = useTranslation();
   const [demoDark, setDemoDark] = useState(false);
@@ -158,6 +169,7 @@ const ThemeToggleDoc = () => {
   const pageTitle = t("themeToggle.title");
   const description = t("themeToggle.basicInfo.description");
 
+  //!#render components: start
   return (
     <div>
       <DocSeo title={pageTitle} description={description} />
@@ -196,10 +208,11 @@ const ThemeToggleDoc = () => {
       />
     </div>
   );
+  //!#render components: end
+  //!#visualComponent: end
 };
-//@@viewOff:component
 
-//@@viewOn:exports
+//!#export: start
 export { ThemeToggleDoc as ThemeToggle };
 export default ThemeToggleDoc;
-//@@viewOff:exports
+//!#export: end

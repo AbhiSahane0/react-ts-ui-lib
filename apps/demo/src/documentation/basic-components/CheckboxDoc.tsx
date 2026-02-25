@@ -1,11 +1,23 @@
-//@@viewOn:imports
+//!#Imports: start
 import { Documentation, CHECKBOX_PROP_NAMES, Checkbox } from "@react-ts-ui-lib/ui";
 import { useTranslation } from "../../i18n/useTranslation";
 import { getPropsWithTranslations } from "../../i18n/getPropsWithTranslations";
 import { useTheme } from "../../app/context/ThemeContext";
 import { useState } from "react";
 import DocSeo from "../../app/DocSeo";
-//@@viewOff:imports
+//!#Imports: end
+
+//!#Constants: start
+//!#Constants: end
+
+//!#Styles: start
+//!#Styles: end
+
+//!#helpers: start
+//!#helpers: end
+
+//!#propTypes: start
+//!#propTypes: end
 
 const CHECKBOX_EXAMPLE_CODE = `<Checkbox
   label="I agree"
@@ -14,9 +26,8 @@ const CHECKBOX_EXAMPLE_CODE = `<Checkbox
   darkMode={darkMode}
 />`;
 
-//@@viewOn:component
 const CheckboxDoc = () => {
-  //@@viewOn:private
+  //!#visualComponent: start
   const { darkMode } = useTheme();
   const { t } = useTranslation();
   const propTypesList = getPropsWithTranslations("checkbox", CHECKBOX_PROP_NAMES, t);
@@ -156,12 +167,12 @@ const CheckboxDoc = () => {
       ],
     },
   ];
-  //@@viewOff:private
+  //!#visualComponent: end
 
   const pageTitle = t("checkbox.title");
   const description = t("checkbox.basicInfo.description");
 
-  //@@viewOn:render
+  //!#render components: start
   return (
     <div>
       <DocSeo title={pageTitle} description={description} />
@@ -200,11 +211,11 @@ const CheckboxDoc = () => {
       />
     </div>
   );
-  //@@viewOff:render
+  //!#render components: end
+  //!#visualComponent: end
 };
-//@@viewOff:component
 
-//@@viewOn:exports
+//!#export: start
 export { CheckboxDoc };
 export default CheckboxDoc;
-//@@viewOff:exports
+//!#export: end

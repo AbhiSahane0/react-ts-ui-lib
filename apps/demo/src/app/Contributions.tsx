@@ -1,21 +1,21 @@
-//@@viewOn:imports
+//!#Imports: start
 import { Pending, ProfileCard, Button } from "@react-ts-ui-lib/ui";
 import { useEffect, useState } from "react";
 import { useTheme } from "./context/ThemeContext";
 import { useTranslation } from "../i18n/useTranslation";
-//@@viewOff:imports
+//!#Imports: end
 
-//@@viewOn:constants
+//!#Constants: start
 const owner = "karel-cz";
 const repo = "react-ts-ui-lib";
 const GITHUB_API_BASE = `https://api.github.com/repos/${owner}/${repo}`;
 const PER_PAGE = 100;
-//@@viewOff:constants
+//!#Constants: end
 
-//@@viewOn:css
-//@@viewOff:css
+//!#Styles: start
+//!#Styles: end
 
-//@@viewOn:helpers
+//!#helpers: start
 interface GitHubContributor {
   id: number;
   login: string;
@@ -104,12 +104,12 @@ function mergeContributorsWithPrs(
   });
 }
 
-//@@viewOff:helpers
+//!#helpers: end
 
-//@@viewOn:propTypes
-//@@viewOff:propTypes
+//!#propTypes: start
+//!#propTypes: end
 
-//@@viewOn:ContributorPRDetails
+//!#ContributorPRDetails: start
 type ContributorPRDetailsProps = {
   prs: PullRequest[];
 };
@@ -154,10 +154,10 @@ function ContributorPRDetails({ prs }: ContributorPRDetailsProps) {
     </ul>
   );
 }
-//@@viewOff:ContributorPRDetails
+//!#ContributorPRDetails: end
 
 function Contributions() {
-  //@@viewOn:private
+  //!#visualComponent: start
   const { darkMode } = useTheme();
   const { t } = useTranslation();
   const [contributors, setContributions] = useState<Contributor[]>([]);
@@ -180,7 +180,6 @@ function Contributions() {
         );
         if (!contribRes.ok) throw new Error(`GitHub API: ${contribRes.status}`);
         const apiContributors: GitHubContributor[] = await contribRes.json();
-
 
         const mergedPrs: GitHubPullRequest[] = [];
         let page = 1;
@@ -216,11 +215,7 @@ function Contributions() {
       (b.mergedPrCount * 5 + b.totalCommits) -
       (a.mergedPrCount * 5 + a.totalCommits)
   );
-
-
-  //@@viewOff:private
-
-  //@@viewOn:render
+  //!#render components: start
 
   if (loading || contributors.length === 0) {
     return <Pending />;
@@ -276,14 +271,14 @@ function Contributions() {
         ))}
       </div>
 
-
     </div>
 
   );
-  //@@viewOff:render
+  //!#render components: end
+  //!#visualComponent: end
 }
 
-//@@viewOn:exports
+//!#export: start
 export { Contributions };
 export default Contributions;
-//@@viewOff:exports
+//!#export: end

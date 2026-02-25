@@ -1,25 +1,22 @@
-//@@viewOn:imports
+//!#Imports: start
 import React from "react";
-//@@viewOff:imports
+//!#Imports: end
 
-//@@viewOn:propTypes
+//!#Constants: start
+//!#Constants: end
+
+//!#Styles: start
+//!#Styles: end
+
+//!#helpers: start
+//!#helpers: end
+
+//!#propTypes: start
 export type BreadcrumbProps = {
-  /**
-   * Jednoduchý textový breadcrumb, pokud nechceš číst URL.
-   */
+
   label?: string;
-  /**
-   * Pokud je true, breadcrumb se složí automaticky z aktuální URL.
-   */
   fromUrl?: boolean;
-  /**
-   * Základ URL, která se odřízne z začátku path
-   * a zároveň se použije jako prefix pro odkazy, např. "/".
-   */
   basePath?: string;
-  /**
-   * Oddělovač mezi položkami.
-   */
   separator?: React.ReactNode;
 };
 
@@ -29,16 +26,15 @@ export const BREADCRUMB_PROP_NAMES = [
   "basePath",
   "separator",
 ] as const;
-//@@viewOff:propTypes
+//!#propTypes: end
 
-//@@viewOn:component
 const Breadcrumb = ({
   label = "Breadcrumb placeholder",
   fromUrl = false,
   basePath = "",
   separator = " / ",
 }: BreadcrumbProps) => {
-  //@@viewOn:private
+  //!#visualComponent: start
   const [segments, setSegments] = React.useState<string[]>([]);
 
   React.useEffect(() => {
@@ -211,9 +207,7 @@ const Breadcrumb = ({
       </nav>
     );
   };
-  //@@viewOff:private
-
-  //@@viewOn:render
+  //!#render components: start
   if (fromUrl) {
     if (basePath === "/" || basePath === "/docs") {
       const docsCrumb = renderDocsBreadcrumb();
@@ -224,12 +218,12 @@ const Breadcrumb = ({
   }
 
   return <span>{label}</span>;
-  //@@viewOff:render
+  //!#render components: end
+  //!#visualComponent: end
 };
-//@@viewOff:component
 
-//@@viewOn:exports
+//!#export: start
 export { Breadcrumb };
 export default Breadcrumb;
-//@@viewOff:exports
+//!#export: end
 

@@ -1,12 +1,20 @@
-//@@viewOn:imports
+//!#Imports: start
 import { useState } from "react";
 import { Icon, getColorScheme } from "@react-ts-ui-lib/ui";
 import { useTheme } from "./context/ThemeContext";
 import { useTranslation } from "../i18n/useTranslation";
 import type { User } from "firebase/auth";
-//@@viewOff:imports
+//!#Imports: end
 
-//@@viewOn:css
+//!#Constants: start
+//!#Constants: end
+
+//!#helpers: start
+//!#helpers: end
+
+
+
+//!#Styles: start
 const getAuthStyles = (darkMode: boolean): Record<string, React.CSSProperties> => {
   const borderColor = getColorScheme("border", darkMode).color;
   const muted = getColorScheme("muted", darkMode).color;
@@ -73,26 +81,23 @@ const getAuthStyles = (darkMode: boolean): Record<string, React.CSSProperties> =
     },
   };
 };
-//@@viewOff:css
+//!#Styles: end
 
-//@@viewOn:propTypes
+//!#propTypes: start
 interface GoogleUserChipProps {
   user: User;
   showDetails?: boolean;
 }
-//@@viewOff:propTypes
+//!#propTypes: end
 
-//@@viewOn:component
 const GoogleUserChip = ({ user, showDetails = true }: GoogleUserChipProps) => {
-  //@@viewOn:private
+  //!#visualComponent: start
   const { darkMode } = useTheme();
   const { t } = useTranslation();
   const authCss = getAuthStyles(darkMode);
   const [failedPhotoURL, setFailedPhotoURL] = useState<string | null>(null);
   const imgError = user.photoURL != null && failedPhotoURL === user.photoURL;
-  //@@viewOff:private
-
-  //@@viewOn:render
+  //!#render components: start
   return (
     <div style={authCss.userChip}>
       {user.photoURL && !imgError ? (
@@ -117,8 +122,10 @@ const GoogleUserChip = ({ user, showDetails = true }: GoogleUserChipProps) => {
       )}
     </div>
   );
-  //@@viewOff:render
+  //!#render components: end
+  //!#visualComponent: end
 };
-//@@viewOff:component
 
+//!#export: start
 export default GoogleUserChip;
+//!#export: end

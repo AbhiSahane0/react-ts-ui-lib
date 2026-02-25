@@ -1,12 +1,12 @@
-//@@viewOn:imports
+//!#Imports: start
 import React from "react";
 import { getColorScheme, getBorderColor } from "../tools/colors";
-//@@viewOff:imports
+//!#Imports: end
 
-//@@viewOn:constants
-//@@viewOff:constants
+//!#Constants: start
+//!#Constants: end
 
-//@@viewOn:css
+//!#Styles: start
 const Css = {
   wrapper: (removeDefaultStyle?: boolean): React.CSSProperties => {
     if (removeDefaultStyle) {
@@ -89,9 +89,9 @@ const Css = {
     };
   },
 };
-//@@viewOff:css
+//!#Styles: end
 
-//@@viewOn:helpers
+//!#helpers: start
 function normalizeDate(value?: string | Date): string | undefined {
   if (!value) return undefined;
 
@@ -104,9 +104,9 @@ function normalizeDate(value?: string | Date): string | undefined {
 
   return value;
 }
-//@@viewOff:helpers
+//!#helpers: end
 
-//@@viewOn:propTypes
+//!#propTypes: start
 export type DateProps = {
   style?: React.CSSProperties;
   noPrint?: boolean;
@@ -145,7 +145,7 @@ export const DATE_PROP_NAMES = [
   "min",
   "max"
 ] as const;
-//@@viewOff:propTypes
+//!#propTypes: end
 
 const DateInput = ({
   style,
@@ -165,8 +165,7 @@ const DateInput = ({
   min,
   max,
 }: DateProps) => {
-
-  //@@viewOn:private
+  //!#visualComponent: start
   if (hidden) return null;
   const normalizedMin = normalizeDate(min);
   const normalizedMax = normalizeDate(max);
@@ -176,9 +175,7 @@ const DateInput = ({
   const isAboveMax = normalizedMax && hasValue ? value > normalizedMax : false;
   const invalidRange = normalizedMin && normalizedMax && normalizedMin > normalizedMax;
   const rangeError = !invalidRange && (isBelowMin || isAboveMax);
-  //@@viewOff:private
-
-  //@@viewOn:render
+  //!#render components: start
   return (
     <div
       className={noPrint ? "no-print" : undefined}
@@ -211,10 +208,11 @@ const DateInput = ({
       )}
     </div>
   );
-  //@@viewOff:render
+  //!#render components: end
+  //!#visualComponent: end
 };
 
-//@@viewOn:exports
+//!#export: start
 export { DateInput as Date };
 export default DateInput;
-//@@viewOff:exports
+//!#export: end

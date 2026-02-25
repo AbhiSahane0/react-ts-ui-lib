@@ -1,4 +1,4 @@
-//@@viewOn:imports
+//!#Imports: start
 import { useState, useMemo, useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -14,12 +14,9 @@ import RegisterModal from "./RegisterModal";
 import { storage } from "@react-ts-ui-lib/utilities";
 import { useAuth } from "./context/AuthContext";
 import GoogleUserChip from "./GoogleUserChip";
-//@@viewOff:imports
+//!#Imports: end
 
-//@@viewOff:imports
-
-//@@viewOn:constants
-
+//!#Constants: start
 const Logo = ({ isMobile }: { isMobile?: boolean }) => (
   <img
     src={isMobile ? "/images/logo-icon.png" : "/images/logo2.png"}
@@ -34,11 +31,10 @@ const Logo = ({ isMobile }: { isMobile?: boolean }) => (
   />
 );
 
-
 const STORAGE_KEY_DARK_MODE = "app-dark-mode";
-//@@viewOff:constants
+//!#Constants: end
 
-//@@viewOn:css
+//!#Styles: start
 const getThemeStyles = (darkMode: boolean): React.CSSProperties => {
   const backgroundScheme = getColorScheme("background", darkMode);
   const textScheme = getColorScheme("text", darkMode);
@@ -49,16 +45,16 @@ const getThemeStyles = (darkMode: boolean): React.CSSProperties => {
     transition: "background-color 0.2s ease, color 0.2s ease",
   };
 };
-//@@viewOff:css
+//!#Styles: end
 
-//@@viewOn:helpers
-//@@viewOff:helpers
+//!#helpers: start
+//!#helpers: end
 
-//@@viewOn:propTypes
-//@@viewOff:propTypes
+//!#propTypes: start
+//!#propTypes: end
 
 function App() {
-  //@@viewOn:private
+  //!#visualComponent: start
   const { darkMode, setDarkMode } = useTheme();
   const { language, setLanguage } = useLanguage();
   const { t } = useTranslation();
@@ -169,8 +165,7 @@ function App() {
   const RightContent = () => {
     return (
       <>
-        {user &&
-        <GoogleUserChip user={user} showDetails={!isMobile} />}
+        {user && <GoogleUserChip user={user} showDetails={!isMobile} />}
         <ThemeToggle
           darkMode={darkMode}
           onToggle={() => setDarkMode(!darkMode)}
@@ -189,19 +184,16 @@ function App() {
           removeDefaultStyle={true}
         />
         {user ? (
-          <>
-
-            <Button
-              size="sm"
-              onClick={signOut}
-              modern={true}
-              icon="mdi-logout"
-              colorScheme="primary"
-              significance="distinct"
-            >
-              {!isMobile && t("auth.signOut")}
-            </Button>
-          </>
+          <Button
+            size="sm"
+            onClick={signOut}
+            modern={true}
+            icon="mdi-logout"
+            colorScheme="primary"
+            significance="distinct"
+          >
+            {!isMobile && t("auth.signOut")}
+          </Button>
         ) : (
           <Button
             size="sm"
@@ -251,11 +243,10 @@ function App() {
       setIsMobileMenuOpen(false);
     }
   };
-  //@@viewOff:private
 
   const htmlLang = language === "cz" ? "cs" : "en";
 
-  //@@viewOn:render
+  //!#render components: start
   return (
     <>
       <Helmet htmlAttributes={{ lang: htmlLang }}>
@@ -306,10 +297,11 @@ function App() {
       <RegisterModal open={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </>
   );
-  //@@viewOff:render
+  //!#render components: end
+  //!#visualComponent: end
 }
 
-//@@viewOn:exports
+//!#export: start
 export { App };
 export default App;
-//@@viewOff:exports
+//!#export: end

@@ -1,15 +1,15 @@
-//@@viewOn:imports
+//!#Imports: start
 import React, { useCallback, useEffect, useLayoutEffect, useRef, useState, type RefObject } from "react";
 import { createPortal } from "react-dom";
 import { getColorScheme, getBorderColor } from "../tools/colors";
-//@@viewOff:imports
+//!#Imports: end
 
-//@@viewOn:constants
-//@@viewOff:constants
+//!#Constants: start
+const GAP = 8;
+//!#Constants: end
 
-//@@viewOn:css
+//!#Styles: start
 const Css = {
-  /** Core positioning – always applied so popover logic works regardless of removeDefaultStyle */
   panelPosition: (position: { top: number; left: number }): React.CSSProperties => ({
     position: "fixed",
     top: position.top,
@@ -17,7 +17,6 @@ const Css = {
     zIndex: 9999,
   }),
 
-  /** Visual styling – only applied when removeDefaultStyle is false */
   panelStyle: (removeDefaultStyle?: boolean, darkMode = true): React.CSSProperties => {
     if (removeDefaultStyle) {
       return {};
@@ -46,12 +45,12 @@ const Css = {
     };
   },
 };
-//@@viewOff:css
+//!#Styles: end
 
-//@@viewOn:helpers
-//@@viewOff:helpers
+//!#helpers: start
+//!#helpers: end
 
-//@@viewOn:propTypes
+//!#propTypes: start
 export type PopoverProps = {
   style?: React.CSSProperties;
   noPrint?: boolean;
@@ -76,9 +75,7 @@ export const POPOVER_PROP_NAMES = [
   "open",
   "onOpenChange",
 ] as const;
-//@@viewOff:propTypes
-
-const GAP = 8;
+//!#propTypes: end
 
 const Popover = ({
   style,
@@ -91,7 +88,7 @@ const Popover = ({
   open,
   onOpenChange,
 }: PopoverProps) => {
-  //@@viewOn:private
+  //!#visualComponent: start
   const [panelPosition, setPanelPosition] = useState<{ top: number; left: number } | undefined>(undefined);
   const panelRef = useRef<HTMLDivElement>(null);
 
@@ -152,9 +149,7 @@ const Popover = ({
   }, [open, onOpenChange, triggerRef, updatePosition]);
 
   if (hidden) return null;
-  //@@viewOff:private
-
-  //@@viewOn:render
+  //!#render components: start
   const panelElement =
     open && content != null && panelPosition != null && typeof document !== "undefined"
       ? createPortal(
@@ -172,10 +167,11 @@ const Popover = ({
       : null;
 
   return <>{panelElement}</>;
-  //@@viewOff:render
+  //!#render components: end
+  //!#visualComponent: end
 };
 
-//@@viewOn:exports
+//!#export: start
 export { Popover };
 export default Popover;
-//@@viewOff:exports
+//!#export: end

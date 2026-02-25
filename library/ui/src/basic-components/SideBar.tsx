@@ -1,4 +1,4 @@
-//@@viewOn:imports
+//!#Imports: start
 import React, { useState } from "react";
 import Icon from "./Icon";
 import {
@@ -8,9 +8,12 @@ import {
   getRgbaFromScheme,
 } from "../tools/colors";
 import { applySortNestedItems } from "./SideBar.utils";
-//@@viewOff:imports
+//!#Imports: end
 
-//@@viewOn:css
+//!#Constants: start
+//!#Constants: end
+
+//!#Styles: start
 const Css = {
   container: (
     removeDefaultStyle?: boolean,
@@ -152,13 +155,13 @@ const Css = {
     };
   },
 };
-//@@viewOff:css
+//!#Styles: end
 
-//@@viewOn:helpers
+//!#helpers: start
 const isHidden = (item?: SideBarItem) => !!(item && item.hidden);
-//@@viewOff:helpers
+//!#helpers: end
 
-//@@viewOn:propTypes
+//!#propTypes: start
 export type SideBarItem = {
   title: string;
   icon?: string;
@@ -205,9 +208,8 @@ export const SIDEBAR_PROP_NAMES = [
   "navbarHeight",
   "sortNestedItems",
 ] as const;
-//@@viewOff:propTypes
+//!#propTypes: end
 
-//@@viewOn:render
 function SideBar({
   itemList,
   style,
@@ -223,6 +225,7 @@ function SideBar({
   navbarHeight = 64,
   sortNestedItems = false,
 }: SideBarProps) {
+  //!#visualComponent: start
   const [hoveredKey, setHoveredKey] = useState<string | null>(null);
   const [openMap, setOpenMap] = useState<Record<string, boolean>>(() => {
     const initialMap: Record<string, boolean> = {};
@@ -359,6 +362,7 @@ function SideBar({
     );
   };
 
+  //!#render components: start
   return (
     <>
       {mobileMode && isOpen && onClose && (
@@ -392,10 +396,11 @@ function SideBar({
       </nav>
     </>
   );
+  //!#render components: end
+  //!#visualComponent: end
 }
-//@@viewOff:render
 
-//@@viewOn:exports
+//!#export: start
 export { SideBar };
 export default SideBar;
-//@@viewOff:exports
+//!#export: end

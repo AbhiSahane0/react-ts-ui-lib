@@ -1,4 +1,4 @@
-//@@viewOn:imports
+//!#Imports: start
 import {
   Documentation,
   POPOVER_PROP_NAMES,
@@ -10,7 +10,19 @@ import { getPropsWithTranslations } from "../../i18n/getPropsWithTranslations";
 import { useTheme } from "../../app/context/ThemeContext";
 import { useRef, useState } from "react";
 import DocSeo from "../../app/DocSeo";
-//@@viewOff:imports
+//!#Imports: end
+
+//!#Constants: start
+//!#Constants: end
+
+//!#Styles: start
+//!#Styles: end
+
+//!#helpers: start
+//!#helpers: end
+
+//!#propTypes: start
+//!#propTypes: end
 
 const POPOVER_EXAMPLE_CODE = `<Popover
   trigger={<Button label="Open" />}
@@ -18,9 +30,8 @@ const POPOVER_EXAMPLE_CODE = `<Popover
   darkMode={darkMode}
 />`;
 
-//@@viewOn:component
 const PopoverDoc = () => {
-  //@@viewOn:private
+  //!#visualComponent: start
   const { darkMode } = useTheme();
   const { t } = useTranslation();
   const propTypesList = getPropsWithTranslations(
@@ -92,12 +103,12 @@ const PopoverDoc = () => {
       ],
     },
   ];
-  //@@viewOff:private
+  //!#visualComponent: end
 
   const pageTitle = t("popover.title");
   const description = t("popover.basicInfo.description");
 
-  //@@viewOn:render
+  //!#render components: start
   return (
     <div>
       <DocSeo title={pageTitle} description={description} />
@@ -146,11 +157,11 @@ const PopoverDoc = () => {
       />
     </div>
   );
-  //@@viewOff:render
+  //!#render components: end
+  //!#visualComponent: end
 };
-//@@viewOff:component
 
-//@@viewOn:exports
+//!#export: start
 export { PopoverDoc };
 export default PopoverDoc;
-//@@viewOff:exports
+//!#export: end

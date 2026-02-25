@@ -1,14 +1,25 @@
-//@@viewOn:imports
+//!#Imports: start
 import { useState } from "react";
 import { Button, UtilityDocumentation } from "@react-ts-ui-lib/ui";
 import { generatePassword } from "@react-ts-ui-lib/utilities";
 import { useTheme } from "../../app/context/ThemeContext";
 import { useTranslation } from "../../i18n/useTranslation";
-//@@viewOff:imports
+//!#Imports: end
 
-//@@viewOn:component
+//!#Constants: start
+//!#Constants: end
+
+//!#Styles: start
+//!#Styles: end
+
+//!#helpers: start
+//!#helpers: end
+
+//!#propTypes: start
+//!#propTypes: end
+
 const GeneratePasswordDoc = () => {
-  //@@viewOn:private
+  //!#visualComponent: start
   const { darkMode } = useTheme();
   const { t } = useTranslation();
   const [length, setLength] = useState(8);
@@ -75,10 +86,7 @@ const GeneratePasswordDoc = () => {
       code: t("generatePassword.usage.basic.code"),
     },
   ];
-
-  //@@viewOff:private
-
-  //@@viewOn:render
+  //!#render components: start
   return (
     <UtilityDocumentation
       title={t("generatePassword.title")}
@@ -96,11 +104,11 @@ const GeneratePasswordDoc = () => {
       darkMode={darkMode}
     />
   );
-  //@@viewOff:render
+  //!#render components: end
+  //!#visualComponent: end
 };
-//@@viewOff:component
 
-//@@viewOn:exports
+//!#export: start
 export { GeneratePasswordDoc };
 export default GeneratePasswordDoc;
-//@@viewOff:exports
+//!#export: end

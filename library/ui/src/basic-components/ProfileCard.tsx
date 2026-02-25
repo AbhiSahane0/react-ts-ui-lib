@@ -1,4 +1,4 @@
-//@@viewOn:imports
+//!#Imports: start
 import React, { useState } from "react";
 import {
   type ColorScheme,
@@ -10,31 +10,30 @@ import {
 } from "../tools/colors";
 import { getRadiusValue, type RadiusToken } from "../tools/radius";
 import Icon from "./Icon";
-//@@viewOff:imports
+//!#Imports: end
 
-//@@viewOn:constants
+//!#Constants: start
 const DEFAULT_PADDING = 16;
 const PHOTO_SIZE = 48;
 const DEFAULT_CARD_WIDTH = 320;
 const DEFAULT_MIN_HEIGHT = 200;
 const DEFAULT_MIN_HEIGHT_HEADER_ONLY = 0;
-//@@viewOff:constants
+//!#Constants: end
 
 export type ProfileMetric = {
   label: string;
   value: React.ReactNode;
 };
 
-
-//@@viewOn:helpers
+//!#helpers: start
 const formatUnit = (value: string | number | undefined): string | undefined => {
   if (value === undefined) return undefined;
   if (typeof value === "number") return `${value}px`;
   return value;
 };
-//@@viewOff:helpers
+//!#helpers: end
 
-//@@viewOn:css
+//!#Styles: start
 const Css = {
   card: (
     removeDefaultStyle?: boolean,
@@ -290,9 +289,9 @@ const Css = {
     };
   },
 };
-//@@viewOff:css
+//!#Styles: end
 
-//@@viewOn:propTypes
+//!#propTypes: start
 export type ProfileCardProps = {
   photo?: string | React.ReactNode;
   photoLink?: string;
@@ -353,9 +352,8 @@ export const PROFILE_CARD_PROP_NAMES = [
   "noPrint",
   "hidden",
 ] as const;
-//@@viewOff:propTypes
+//!#propTypes: end
 
-//@@viewOn:component
 const ProfileCard = ({
   photo,
   photoLink,
@@ -385,10 +383,9 @@ const ProfileCard = ({
   hidden = false,
   borderRadius = "md",
 }: ProfileCardProps) => {
-  //@@viewOn:private
+  //!#visualComponent: start
   const [isCollapsed, setIsCollapsed] = useState(collapsed);
   const bodyVisible = !isCollapsed;
-
 
   if (hidden) return null;
 
@@ -437,9 +434,7 @@ const ProfileCard = ({
   const cardMinHeight =
     formatUnit(minHeight) ??
     (useCompactMinHeight ? formatUnit(DEFAULT_MIN_HEIGHT_HEADER_ONLY) : formatUnit(DEFAULT_MIN_HEIGHT));
-  //@@viewOff:private
-
-  //@@viewOn:render
+  //!#render components: start
   const cardStyle = Css.card(
     removeDefaultStyle,
     background,
@@ -546,7 +541,6 @@ const ProfileCard = ({
               )
             )}
 
-
             {(descriptionName !== undefined || descriptionValue !== undefined) && (
               <div style={Css.labelRow(removeDefaultStyle)}>
                 {descriptionName !== undefined && descriptionName !== "" && (
@@ -571,11 +565,11 @@ const ProfileCard = ({
       )}
     </div>
   );
-  //@@viewOff:render
+  //!#render components: end
+  //!#visualComponent: end
 };
-//@@viewOff:component
 
-//@@viewOn:exports
+//!#export: start
 export { ProfileCard };
 export default ProfileCard;
-//@@viewOff:exports
+//!#export: end

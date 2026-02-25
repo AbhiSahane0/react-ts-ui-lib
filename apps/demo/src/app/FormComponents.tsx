@@ -1,31 +1,31 @@
-//@@viewOn:imports
+//!#Imports: start
 import { useState } from "react";
 import { Block, Input, Checkbox, Date, Select, Radios } from "@react-ts-ui-lib/ui";
 import type { SelectItem, RadiosItem } from "@react-ts-ui-lib/ui";
 import { useTranslation } from "../i18n/useTranslation";
 import { useTheme } from "./context/ThemeContext";
-//@@viewOff:imports
+//!#Imports: end
 
-//@@viewOn:constants
-//@@viewOff:constants
+//!#Constants: start
+//!#Constants: end
 
-//@@viewOn:css
+//!#Styles: start
 const getStyles = (): Record<string, React.CSSProperties> => ({
   container: { display: "flex", flexDirection: "column", gap: 24, margin: 12 },
   grid: { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 24 },
   blockContent: { display: "flex", flexDirection: "column", gap: 12, flexWrap: "wrap" },
   title: { fontSize: 24, fontWeight: 700, marginBottom: 24 },
 });
-//@@viewOff:css
+//!#Styles: end
 
-//@@viewOn:helpers
-//@@viewOff:helpers
+//!#helpers: start
+//!#helpers: end
 
-//@@viewOn:propTypes
-//@@viewOff:propTypes
+//!#propTypes: start
+//!#propTypes: end
 
 const FormComponents = () => {
-  //@@viewOn:private
+  //!#visualComponent: start
   const { darkMode } = useTheme();
   const { t } = useTranslation();
   const styles = getStyles();
@@ -43,9 +43,7 @@ const FormComponents = () => {
     { value: "b", label: "Option B" },
     { value: "c", label: "Option C" },
   ];
-  //@@viewOff:private
-
-  //@@viewOn:render
+  //!#render components: start
   return (
     <div style={styles.container}>
       <Block header={t("formComponentsPage.title")} card="full" darkMode={darkMode}>
@@ -100,10 +98,11 @@ const FormComponents = () => {
       </div>
     </div>
   );
-  //@@viewOff:render
+  //!#render components: end
+  //!#visualComponent: end
 };
 
-//@@viewOn:exports
+//!#export: start
 export { FormComponents };
 export default FormComponents;
-//@@viewOff:exports
+//!#export: end

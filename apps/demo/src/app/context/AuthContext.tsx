@@ -1,27 +1,29 @@
 /* eslint-disable react-refresh/only-export-components -- context file exports Provider and useAuth hook */
-//@@viewOn:imports
+//!#Imports: start
 import { createContext, useContext, useState, type ReactNode } from "react";
 import type { User, UserCredential } from "firebase/auth";
 import { getFirebaseAuth, isFirebaseConfigured } from "../../firebase/config";
-//@@viewOff:imports
+//!#Imports: end
 
-//@@viewOn:constants
-//@@viewOff:constants
+//!#Styles: start
+//!#Styles: end
 
-//@@viewOn:types
+//!#helpers: start
+//!#helpers: end
+
+//!#propTypes: start
 type AuthContextType = {
   user: User | null;
   loading: boolean;
   signInWithGoogle: () => Promise<UserCredential>;
   signOut: () => Promise<void>;
 };
-//@@viewOff:types
+//!#propTypes: end
 
-//@@viewOn:context
+//!#Constants: start
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
-//@@viewOff:context
+//!#Constants: end
 
-//@@viewOn:provider
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(false);
@@ -61,11 +63,12 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     signOut,
   };
 
+  //!#render components: start
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
+  //!#render components: end
 };
-//@@viewOff:provider
 
-//@@viewOn:hook
+//!#export: start
 export const useAuth = () => {
   const context = useContext(AuthContext);
   if (context === undefined) {
@@ -73,4 +76,4 @@ export const useAuth = () => {
   }
   return context;
 };
-//@@viewOff:hook
+//!#export: end

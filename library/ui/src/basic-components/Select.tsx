@@ -1,14 +1,13 @@
-//@@viewOn:imports
+//!#Imports: start
 import React, { useState } from "react";
 import { getColorScheme, getBorderColor } from "../tools/colors";
 import { getRadiusValue, type RadiusToken } from "../tools/radius";
+//!#Imports: end
 
-//@@viewOff:imports
+//!#Constants: start
+//!#Constants: end
 
-//@@viewOn:constants
-//@@viewOff:constants
-
-//@@viewOn:css
+//!#Styles: start
 const Css = {
   wrapper: (removeDefaultStyle?: boolean): React.CSSProperties => {
     if (removeDefaultStyle) {
@@ -59,12 +58,12 @@ const Css = {
 
   },
 };
-//@@viewOff:css
+//!#Styles: end
 
-//@@viewOn:helpers
-//@@viewOff:helpers
+//!#helpers: start
+//!#helpers: end
 
-//@@viewOn:propTypes
+//!#propTypes: start
 export type SelectItem = {
   value: string | number;
   label: React.ReactNode;
@@ -104,7 +103,7 @@ export const SELECT_PROP_NAMES = [
   "className",
   "borderRadius",
 ] as const;
-//@@viewOff:propTypes
+//!#propTypes: end
 
 const Select = ({
   style,
@@ -122,16 +121,14 @@ const Select = ({
   className,
   borderRadius = "none",
 }: SelectProps) => {
-  //@@viewOn:private
+  //!#visualComponent: start
   const [focused, setFocused] = useState(false);
   if (hidden) return null;
 
   const borderRadiusValue = getRadiusValue(borderRadius);
 
   const valueStr = value === undefined || value === null ? "" : String(value);
-  //@@viewOff:private
-
-  //@@viewOn:render
+  //!#render components: start
   return (
     <div
       className={noPrint ? "no-print" : undefined}
@@ -164,10 +161,11 @@ const Select = ({
       </select>
     </div>
   );
-  //@@viewOff:render
+  //!#render components: end
+  //!#visualComponent: end
 };
 
-//@@viewOn:exports
+//!#export: start
 export { Select };
 export default Select;
-//@@viewOff:exports
+//!#export: end

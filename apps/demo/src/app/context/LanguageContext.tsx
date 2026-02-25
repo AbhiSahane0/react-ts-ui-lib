@@ -1,4 +1,5 @@
 /* eslint-disable react-refresh/only-export-components */
+//!#Imports: start
 import {
   createContext,
   useContext,
@@ -7,13 +8,26 @@ import {
   type ReactNode,
 } from "react";
 import { storage } from "@react-ts-ui-lib/utilities";
+//!#Imports: end
 
+//!#Constants: start
+//!#Constants: end
+
+//!#Styles: start
+//!#Styles: end
+
+//!#helpers: start
+//!#helpers: end
+
+//!#propTypes: start
 type LanguageContextType = {
   language: string;
   setLanguage: (value: string) => void;
   toggleLanguage: () => void;
 };
+//!#propTypes: end
 
+//!#Constants: start
 const LanguageContext = createContext<LanguageContextType | undefined>(
   undefined,
 );
@@ -23,7 +37,9 @@ export const DEFAULT_LANGUAGE = "en" as const;
 export const SECONDARY_LANGUAGE = "cz" as const;
 const SUPPORTED_LANGUAGES = [DEFAULT_LANGUAGE, SECONDARY_LANGUAGE] as const;
 type SupportedLanguage = (typeof SUPPORTED_LANGUAGES)[number];
+//!#Constants: end
 
+//!#helpers: start
 const isSupportedLanguage = (value: string | null): value is SupportedLanguage =>
   !!value && SUPPORTED_LANGUAGES.includes(value as SupportedLanguage);
 
@@ -41,8 +57,10 @@ const getInitialLanguage = (): SupportedLanguage => {
 
   return DEFAULT_LANGUAGE;
 };
+//!#helpers: end
 
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
+  //!#visualComponent: start
   const [language, setLanguageState] = useState<SupportedLanguage>(
     () => getInitialLanguage(),
   );
@@ -65,13 +83,17 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
       prev === DEFAULT_LANGUAGE ? SECONDARY_LANGUAGE : DEFAULT_LANGUAGE,
     );
 
+  //!#render components: start
   return (
     <LanguageContext.Provider value={{ language, setLanguage, toggleLanguage }}>
       {children}
     </LanguageContext.Provider>
   );
+  //!#render components: end
+  //!#visualComponent: end
 };
 
+//!#export: start
 export const useLanguage = () => {
   const ctx = useContext(LanguageContext);
   if (!ctx) throw new Error("useLanguage must be used within LanguageProvider");
@@ -79,3 +101,4 @@ export const useLanguage = () => {
 };
 
 export default LanguageContext;
+//!#export: end

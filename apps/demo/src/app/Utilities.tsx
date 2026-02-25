@@ -1,4 +1,4 @@
-//@@viewOn:imports
+//!#Imports: start
 import { useState } from "react";
 import { Block, Button, Input } from "@react-ts-ui-lib/ui";
 import {
@@ -12,12 +12,12 @@ import {
 } from "@react-ts-ui-lib/utilities";
 import { useTranslation } from "../i18n/useTranslation";
 import { useTheme } from "./context/ThemeContext";
-//@@viewOff:imports
+//!#Imports: end
 
-//@@viewOn:constants
-//@@viewOff:constants
+//!#Constants: start
+//!#Constants: end
 
-//@@viewOn:css
+//!#Styles: start
 const getStyles = (darkMode: boolean): Record<string, React.CSSProperties> => ({
   container: { display: "flex", flexDirection: "column", gap: 24, margin: 12 },
   grid: { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 24 },
@@ -45,16 +45,16 @@ const getStyles = (darkMode: boolean): Record<string, React.CSSProperties> => ({
   result: { marginTop: 8, wordBreak: "break-all", fontSize: 14 },
   title: { fontSize: 24, fontWeight: 700, marginBottom: 24 },
 });
-//@@viewOff:css
+//!#Styles: end
 
-//@@viewOn:helpers
-//@@viewOff:helpers
+//!#helpers: start
+//!#helpers: end
 
-//@@viewOn:propTypes
-//@@viewOff:propTypes
+//!#propTypes: start
+//!#propTypes: end
 
 const Utilities = () => {
-  //@@viewOn:private
+  //!#visualComponent: start
   const { darkMode } = useTheme();
   const { t } = useTranslation();
   const styles = getStyles(darkMode);
@@ -97,9 +97,7 @@ const Utilities = () => {
   const handleRandom = () => setRandomResult(generateRandomString(randomLength));
   const handleEmail = () => setEmailResult(validateEmail(emailInput));
   const handleJson = () => setJsonResult(validateJson(jsonInput));
-  //@@viewOff:private
-
-  //@@viewOn:render
+  //!#render components: start
   return (
     <div style={styles.container}>
       <Block header={t("utilitiesPage.title")} card="full" darkMode={darkMode}>
@@ -203,10 +201,11 @@ const Utilities = () => {
       </div>
     </div>
   );
-  //@@viewOff:render
+  //!#render components: end
+  //!#visualComponent: end
 };
 
-//@@viewOn:exports
+//!#export: start
 export { Utilities };
 export default Utilities;
-//@@viewOff:exports
+//!#export: end

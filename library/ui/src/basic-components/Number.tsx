@@ -1,9 +1,12 @@
-//@@viewOn:imports
+//!#Imports: start
 import React from "react";
 import { getColorScheme, type ColorScheme } from "../tools/colors";
-//@@viewOff:imports
+//!#Imports: end
 
-//@@viewOn:css
+//!#Constants: start
+//!#Constants: end
+
+//!#Styles: start
 const Css = {
   span: (
     darkMode = true,
@@ -20,9 +23,12 @@ const Css = {
     };
   },
 };
-//@@viewOff:css
+//!#Styles: end
 
-//@@viewOn:propTypes
+//!#helpers: start
+//!#helpers: end
+
+//!#propTypes: start
 export type NumberProps = {
   value: number;
   tooltip?: string;
@@ -42,9 +48,9 @@ export const NUMBER_PROP_NAMES = [
   "darkMode",
   "style",
 ] as const;
-//@@viewOff:propTypes
+//!#propTypes: end
 
-export const Number: React.FC<NumberProps> = ({
+const Number: React.FC<NumberProps> = ({
   value,
   tooltip,
   wholeLengthNumberInTooltip,
@@ -53,7 +59,7 @@ export const Number: React.FC<NumberProps> = ({
   darkMode = true,
   style,
 }) => {
-  //@@viewOn:private
+  //!#visualComponent: start
   const formattedValue = new Intl.NumberFormat(undefined, {
     minimumFractionDigits: minDecimalDigits,
     maximumFractionDigits: minDecimalDigits,
@@ -61,9 +67,7 @@ export const Number: React.FC<NumberProps> = ({
 
   const tooltipContent =
     tooltip ?? (wholeLengthNumberInTooltip ? String(value) : undefined);
-  //@@viewOff:private
-
-  //@@viewOn:render
+  //!#render components: start
   return (
     <span
       style={{ ...Css.span(darkMode, colorScheme), ...style }}
@@ -72,5 +76,11 @@ export const Number: React.FC<NumberProps> = ({
       {formattedValue}
     </span>
   );
-  //@@viewOff:render
+  //!#render components: end
+  //!#visualComponent: end
 };
+
+//!#export: start
+export { Number };
+export default Number;
+//!#export: end

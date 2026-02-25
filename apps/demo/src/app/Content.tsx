@@ -1,36 +1,34 @@
-//@@viewOn:imports
+//!#Imports: start
 import { Suspense } from "react";
 import { Pending, NotFoundRoute, type SideBarItem } from "@react-ts-ui-lib/ui";
 import componentMap from "./tools/ComponentMap";
 
-//@@viewOff:imports
+//!#Imports: end
 
-//@@viewOn:constants
-//@@viewOff:constants
+//!#Constants: start
+//!#Constants: end
 
-//@@viewOn:css
-//@@viewOff:css
+//!#Styles: start
+//!#Styles: end
 
-//@@viewOn:helpers
-//@@viewOff:helpers
+//!#helpers: start
+//!#helpers: end
 
-//@@viewOn:propTypes
+//!#propTypes: start
 type ContentProps = {
   selectedItem: SideBarItem | null;
 };
-//@@viewOff:propTypes
+//!#propTypes: end
 
 const Content = ({ selectedItem }: ContentProps) => {
-  //@@viewOn:private
+  //!#visualComponent: start
   if (!selectedItem) {
     return <div>Select a component from the menu.</div>;
   }
 
   const mapKey = selectedItem.key || selectedItem.title;
   const Component = componentMap[mapKey];
-  //@@viewOff:private
-
-  //@@viewOn:render
+  //!#render components: start
   return (
     <div>
       <Suspense fallback={<Pending />}>
@@ -42,10 +40,11 @@ const Content = ({ selectedItem }: ContentProps) => {
       </Suspense>
     </div>
   );
-  //@@viewOff:render
+  //!#render components: end
+  //!#visualComponent: end
 };
 
-//@@viewOn:exports
+//!#export: start
 export { Content };
 export default Content;
-//@@viewOff:exports
+//!#export: end

@@ -1,15 +1,15 @@
-//@@viewOn:imports
+//!#Imports: start
 import React from "react";
 import { getBorderColor } from "../tools/colors";
 import { getRadiusValue, type RadiusToken } from "../tools/radius";
 import Button from "./Button";
 import type { ButtonProps } from "./Button";
-//@@viewOff:imports
+//!#Imports: end
 
-//@@viewOn:constants
-//@@viewOff:constants
+//!#Constants: start
+//!#Constants: end
 
-//@@viewOn:css
+//!#Styles: start
 const Css = {
   wrapper: (
     removeDefaultStyle?: boolean,
@@ -67,17 +67,17 @@ const Css = {
     };
   },
 };
-//@@viewOff:css
+//!#Styles: end
 
-//@@viewOn:helpers
+//!#helpers: start
 function isButtonItem(
   item: ButtonGroupItem,
 ): item is ButtonGroupItemButton {
   return !("component" in item) || item.component == null;
 }
-//@@viewOff:helpers
+//!#helpers: end
 
-//@@viewOn:propTypes
+//!#propTypes: start
 /** Item as Button props – same API as Button component */
 export type ButtonGroupItemButton = ButtonProps & { key?: React.Key };
 
@@ -116,7 +116,7 @@ export const BUTTON_GROUP_PROP_NAMES = [
   "removeDefaultStyle",
   "darkMode",
 ] as const;
-//@@viewOff:propTypes
+//!#propTypes: end
 
 const ButtonGroup = ({
   itemList,
@@ -130,7 +130,7 @@ const ButtonGroup = ({
   removeDefaultStyle = false,
   darkMode = true,
 }: ButtonGroupProps) => {
-  //@@viewOn:private
+  //!#visualComponent: start
   if (hidden) return null;
 
   const borderRadiusValue = getRadiusValue(borderRadius);
@@ -141,9 +141,7 @@ const ButtonGroup = ({
     : Css.wrapper(removeDefaultStyle, direction, gap ?? (isSegmented ? "0" : "0.5rem"));
 
   const itemStyle = isSegmented ? Css.segmentedItem(removeDefaultStyle) : Css.itemWrapper(removeDefaultStyle);
-  //@@viewOff:private
-
-  //@@viewOn:render
+  //!#render components: start
   return (
     <div
       className={noPrint ? "no-print" : undefined}
@@ -179,10 +177,11 @@ const ButtonGroup = ({
       })}
     </div>
   );
-  //@@viewOff:render
+  //!#render components: end
+  //!#visualComponent: end
 };
 
-//@@viewOn:exports
+//!#export: start
 export { ButtonGroup };
 export default ButtonGroup;
-//@@viewOff:exports
+//!#export: end

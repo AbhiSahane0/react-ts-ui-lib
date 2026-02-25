@@ -1,14 +1,25 @@
-//@@viewOn:imports
+//!#Imports: start
 import { useState } from "react";
 import { Button, UtilityDocumentation } from "@react-ts-ui-lib/ui";
 import { copyToClipboard } from "@react-ts-ui-lib/utilities";
 import { useTheme } from "../../app/context/ThemeContext";
 import { useTranslation } from "../../i18n/useTranslation";
-//@@viewOff:imports
+//!#Imports: end
 
-//@@viewOn:component
+//!#Constants: start
+//!#Constants: end
+
+//!#Styles: start
+//!#Styles: end
+
+//!#helpers: start
+//!#helpers: end
+
+//!#propTypes: start
+//!#propTypes: end
+
 const CopyToClipboardDoc = () => {
-  //@@viewOn:private
+  //!#visualComponent: start
   const { darkMode } = useTheme();
   const { t } = useTranslation();
   const [value, setValue] = useState("Hello from react-ts-ui-lib!");
@@ -103,9 +114,7 @@ const CopyToClipboardDoc = () => {
       code: t("copyToClipboard.usage.withErrorHandling.code"),
     },
   ];
-  //@@viewOff:private
-
-  //@@viewOn:render
+  //!#render components: start
   return (
     <UtilityDocumentation
       title={t("copyToClipboard.title")}
@@ -123,11 +132,11 @@ const CopyToClipboardDoc = () => {
       darkMode={darkMode}
     />
   );
-  //@@viewOff:render
+  //!#render components: end
+  //!#visualComponent: end
 };
-//@@viewOff:component
 
-//@@viewOn:exports
+//!#export: start
 export { CopyToClipboardDoc };
 export default CopyToClipboardDoc;
-//@@viewOff:exports
+//!#export: end

@@ -1,4 +1,4 @@
-//@@viewOn:imports
+//!#Imports: start
 import { Documentation, SELECT_PROP_NAMES, Select } from "@react-ts-ui-lib/ui";
 import type { SelectItem } from "@react-ts-ui-lib/ui";
 import { useTranslation } from "../../i18n/useTranslation";
@@ -6,7 +6,19 @@ import { getPropsWithTranslations } from "../../i18n/getPropsWithTranslations";
 import { useTheme } from "../../app/context/ThemeContext";
 import { useState } from "react";
 import DocSeo from "../../app/DocSeo";
-//@@viewOff:imports
+//!#Imports: end
+
+//!#Constants: start
+//!#Constants: end
+
+//!#Styles: start
+//!#Styles: end
+
+//!#helpers: start
+//!#helpers: end
+
+//!#propTypes: start
+//!#propTypes: end
 
 const SELECT_EXAMPLE_CODE = `<Select
   itemList={options}
@@ -15,9 +27,8 @@ const SELECT_EXAMPLE_CODE = `<Select
   darkMode={darkMode}
 />`;
 
-//@@viewOn:component
 const SelectDoc = () => {
-  //@@viewOn:private
+  //!#visualComponent: start
   const { darkMode } = useTheme();
   const { t } = useTranslation();
   const propTypesList = getPropsWithTranslations("select", SELECT_PROP_NAMES, t);
@@ -63,15 +74,57 @@ const SelectDoc = () => {
             />
           ),
         },
+        {
+          label: t("select.examples.borderRadius"),
+          components: (
+            <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+              <Select
+                itemList={fruitItems}
+                value={basicValue}
+                onChange={(e) => setBasicValue(e.target.value)}
+                borderRadius="xs"
+                darkMode={darkMode}
+              />
+              <Select
+                itemList={fruitItems}
+                value={basicValue}
+                onChange={(e) => setBasicValue(e.target.value)}
+                borderRadius="sm"
+                darkMode={darkMode}
+              />
+              <Select
+                itemList={fruitItems}
+                value={basicValue}
+                onChange={(e) => setBasicValue(e.target.value)}
+                borderRadius="md"
+                darkMode={darkMode}
+              />
+              <Select
+                itemList={fruitItems}
+                value={basicValue}
+                onChange={(e) => setBasicValue(e.target.value)}
+                borderRadius="lg"
+                darkMode={darkMode}
+              />
+              <Select
+                itemList={fruitItems}
+                value={basicValue}
+                onChange={(e) => setBasicValue(e.target.value)}
+                borderRadius="full"
+                darkMode={darkMode}
+              />
+            </div>
+          ),
+        },
       ],
     },
   ];
-  //@@viewOff:private
+  //!#visualComponent: end
 
   const pageTitle = t("select.title");
   const description = t("select.basicInfo.description");
 
-  //@@viewOn:render
+  //!#render components: start
   return (
     <div>
       <DocSeo title={pageTitle} description={description} />
@@ -110,11 +163,11 @@ const SelectDoc = () => {
       />
     </div>
   );
-  //@@viewOff:render
+  //!#render components: end
+  //!#visualComponent: end
 };
-//@@viewOff:component
 
-//@@viewOn:exports
+//!#export: start
 export { SelectDoc };
 export default SelectDoc;
-//@@viewOff:exports
+//!#export: end

@@ -1,11 +1,23 @@
-//@@viewOn:imports
+//!#Imports: start
 import { Documentation, INFO_GROUP_PROP_NAMES, InfoGroup, Badge, Icon, Number } from "@react-ts-ui-lib/ui";
 import type { InfoGroupItem } from "@react-ts-ui-lib/ui";
 import { useTranslation } from "../../i18n/useTranslation";
 import { getPropsWithTranslations } from "../../i18n/getPropsWithTranslations";
 import { useTheme } from "../../app/context/ThemeContext";
 import DocSeo from "../../app/DocSeo";
-//@@viewOff:imports
+//!#Imports: end
+
+//!#Constants: start
+//!#Constants: end
+
+//!#Styles: start
+//!#Styles: end
+
+//!#helpers: start
+//!#helpers: end
+
+//!#propTypes: start
+//!#propTypes: end
 
 const INFO_GROUP_EXAMPLE_CODE = `<InfoGroup
   itemList={[
@@ -17,9 +29,8 @@ const INFO_GROUP_EXAMPLE_CODE = `<InfoGroup
   darkMode={darkMode}
 />`;
 
-//@@viewOn:component
 const InfoGroupDoc = () => {
-  //@@viewOn:private
+  //!#visualComponent: start
   const { darkMode } = useTheme();
   const { t } = useTranslation();
   const propTypesList = getPropsWithTranslations("infogroup", INFO_GROUP_PROP_NAMES, t);
@@ -211,9 +222,7 @@ const InfoGroupDoc = () => {
       ],
     },
   ];
-  //@@viewOff:private
-
-  //@@viewOn:render
+  //!#render components: start
   return (
     <div>
       <DocSeo title={pageTitle} description={description} />
@@ -253,11 +262,11 @@ const InfoGroupDoc = () => {
       />
     </div>
   );
-  //@@viewOff:render
+  //!#render components: end
+  //!#visualComponent: end
 };
-//@@viewOff:component
 
-//@@viewOn:exports
+//!#export: start
 export { InfoGroupDoc };
 export default InfoGroupDoc;
-//@@viewOff:exports
+//!#export: end

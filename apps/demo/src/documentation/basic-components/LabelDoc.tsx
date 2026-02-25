@@ -1,18 +1,29 @@
-//@@viewOn:imports
+//!#Imports: start
 import { Documentation, LABEL_PROP_NAMES, Label } from "@react-ts-ui-lib/ui";
 import { useTranslation } from "../../i18n/useTranslation";
 import { getPropsWithTranslations } from "../../i18n/getPropsWithTranslations";
 import { useTheme } from "../../app/context/ThemeContext";
 import DocSeo from "../../app/DocSeo";
-//@@viewOff:imports
+//!#Imports: end
+
+//!#Constants: start
+//!#Constants: end
+
+//!#Styles: start
+//!#Styles: end
+
+//!#helpers: start
+//!#helpers: end
+
+//!#propTypes: start
+//!#propTypes: end
 
 const LABEL_EXAMPLE_CODE = `<Label darkMode={darkMode}>
   Nadpis sekce
 </Label>`;
 
-//@@viewOn:component
 const LabelDoc = () => {
-  //@@viewOn:private
+  //!#visualComponent: start
   const { darkMode } = useTheme();
   const { t } = useTranslation();
   const propTypesList = getPropsWithTranslations("label", LABEL_PROP_NAMES, t);
@@ -84,9 +95,7 @@ const LabelDoc = () => {
       ],
     },
   ];
-  //@@viewOff:private
-
-  //@@viewOn:render
+  //!#render components: start
   return (
     <div>
       <DocSeo title={pageTitle} description={description} />
@@ -118,11 +127,11 @@ const LabelDoc = () => {
       />
     </div>
   );
-  //@@viewOff:render
+  //!#render components: end
+  //!#visualComponent: end
 };
-//@@viewOff:component
 
-//@@viewOn:exports
+//!#export: start
 export { LabelDoc };
 export default LabelDoc;
-//@@viewOff:exports
+//!#export: end

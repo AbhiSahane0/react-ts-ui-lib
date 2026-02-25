@@ -1,4 +1,4 @@
-//@@viewOn:imports
+//!#Imports: start
 import React, { useState } from "react";
 import {
   type ColorScheme,
@@ -11,12 +11,12 @@ import { getRadiusValue, type RadiusToken } from "../tools/radius";
 import { getButtonSize, type SizeToken } from "../tools/size";
 import Pending from "./Pending";
 import Icon from "./Icon";
-//@@viewOff:imports
+//!#Imports: end
 
-//@@viewOn:constants
-//@@viewOff:constants
+//!#Constants: start
+//!#Constants: end
 
-//@@viewOn:css
+//!#Styles: start
 const Css = {
   button: (
     removeDefaultStyle?: boolean,
@@ -88,12 +88,12 @@ const Css = {
     transform: "translate(-50%, -50%)",
   }),
 };
-//@@viewOff:css
+//!#Styles: end
 
-//@@viewOn:helpers
-//@@viewOff:helpers
+//!#helpers: start
+//!#helpers: end
 
-//@@viewOn:propTypes
+//!#propTypes: start
 export type ButtonProps = {
   children?: React.ReactNode;
   disabled?: boolean;
@@ -140,7 +140,7 @@ export const BUTTON_PROP_NAMES = [
   "modern",
   "hidden"
 ] as const;
-//@@viewOff:propTypes
+//!#propTypes: end
 
 const Button = ({
   children,
@@ -163,7 +163,7 @@ const Button = ({
   modern = false,
   hidden = false
 }: ButtonProps) => {
-  //@@viewOn:private
+  //!#visualComponent: start
   const [hover, setHover] = useState(false);
 
   const scheme = getSignificanceColor(colorScheme, significance, darkMode);
@@ -205,9 +205,7 @@ const Button = ({
 
   const content = children || label;
   const useModernGradient = modern && significance !== "distinct";
-  //@@viewOff:private
-
-  //@@viewOn:render
+  //!#render components: start
   const buttonStyle = Css.button(
     removeDefaultStyle,
     background,
@@ -266,10 +264,11 @@ const Button = ({
       )}
     </button>
   );
-  //@@viewOff:render
+  //!#render components: end
+  //!#visualComponent: end
 };
 
-//@@viewOn:exports
+//!#export: start
 export { Button };
 export default Button;
-//@@viewOff:exports
+//!#export: end

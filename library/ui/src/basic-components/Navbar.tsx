@@ -1,6 +1,6 @@
-//@@viewOn:imports
-import React, { useState, useEffect } from "react";
-import type { ReactNode } from "react";
+//!#Imports: start
+import { useState, useEffect } from "react";
+import type { ReactNode, CSSProperties } from "react";
 import {
   type ColorScheme,
   getColorScheme,
@@ -8,16 +8,19 @@ import {
   getRgbaFromScheme,
 } from "../tools/colors";
 import Icon from "./Icon";
-//@@viewOff:imports
+//!#Imports: end
 
-//@@viewOn:css
+//!#Constants: start
+//!#Constants: end
+
+//!#Styles: start
 const Css = {
   container: (
     removeDefaultStyle?: boolean,
     colorScheme: ColorScheme = "background",
     darkMode = true,
     sticky?: boolean,
-  ): React.CSSProperties => {
+  ): CSSProperties => {
     if (removeDefaultStyle) return {};
     const scheme = getColorScheme(colorScheme, darkMode);
     const borderColor = getBorderColor(darkMode);
@@ -46,7 +49,7 @@ const Css = {
     };
   },
 
-  section: (align: "left" | "center" | "right"): React.CSSProperties => ({
+  section: (align: "left" | "center" | "right"): CSSProperties => ({
     display: "flex",
     alignItems: "center",
     gap: 16,
@@ -63,7 +66,7 @@ const Css = {
     removeDefaultStyle?: boolean,
     colorScheme: ColorScheme = "background",
     darkMode = true,
-  ): React.CSSProperties => {
+  ): CSSProperties => {
     if (removeDefaultStyle) return {};
     const scheme = getColorScheme(colorScheme, darkMode);
     return {
@@ -79,7 +82,7 @@ const Css = {
     };
   },
 
-  actionButton: (removeDefaultStyle?: boolean): React.CSSProperties => {
+  actionButton: (removeDefaultStyle?: boolean): CSSProperties => {
     if (removeDefaultStyle) return {};
     return {
       cursor: "pointer",
@@ -88,7 +91,7 @@ const Css = {
     };
   },
 
-  hamburgerButton: (removeDefaultStyle?: boolean): React.CSSProperties => {
+  hamburgerButton: (removeDefaultStyle?: boolean): CSSProperties => {
     if (removeDefaultStyle) return {};
     return {
       cursor: "pointer",
@@ -100,9 +103,12 @@ const Css = {
     };
   },
 };
-//@@viewOff:css
+//!#Styles: end
 
-//@@viewOn:propTypes
+//!#helpers: start
+//!#helpers: end
+
+//!#propTypes: start
 export type NavbarProps = {
   logo?: string | ReactNode;
   centerContent?: ReactNode;
@@ -133,9 +139,8 @@ export const NAVBAR_PROP_NAMES = [
   "hamburgerOpen",
   "mobileBreakpoint",
 ] as const;
-//@@viewOff:propTypes
+//!#propTypes: end
 
-//@@viewOn:render
 function Navbar({
   logo = "LOGO",
   centerContent,
@@ -150,6 +155,7 @@ function Navbar({
   hamburgerOpen = false,
   mobileBreakpoint = 768,
 }: NavbarProps) {
+  //!#visualComponent: start
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -173,6 +179,7 @@ function Navbar({
 
   const hamburgerIcon = hamburgerOpen ? "mdi-close" : "mdi-menu";
 
+  //!#render components: start
   return (
     <header
       style={Css.container(removeDefaultStyle, colorScheme, darkMode, sticky)}
@@ -222,10 +229,11 @@ function Navbar({
       <div style={Css.section("right")}>{rightContent}</div>
     </header>
   );
+  //!#render components: end
+  //!#visualComponent: end
 }
-//@@viewOff:render
 
-//@@viewOn:exports
+//!#export: start
 export { Navbar };
 export default Navbar;
-//@@viewOff:exports
+//!#export: end

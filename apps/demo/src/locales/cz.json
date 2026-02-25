@@ -329,7 +329,7 @@
   "icon": {
     "title": "Icon Komponenta",
     "basicInfo": {
-      "description": "Zobrazuje ikonu z Material Design Icons (mdi-*). Lze nastavit velikost, barvu, tooltip a kliknutí."
+      "description": "Zobrazuje ikonu z Material Design Icons (mdi-*). Podporuje velikost, barevná schémata jako u Button (primary, success, atd.), vlastní barvu, tooltip a kliknutí – vše optimalizované pro světlý i tmavý režim."
     },
     "props": {
       "icon": {
@@ -343,7 +343,12 @@
         "required": "false"
       },
       "color": {
-        "description": "Barva ikony (CSS color hodnota).",
+        "description": "Přímá CSS barva ikony. Pokud je vyplněna, má přednost před colorScheme.",
+        "type": "string",
+        "required": "false"
+      },
+      "colorScheme": {
+        "description": "Barevné schéma z palety (primary, success, danger, warning, info atd.). Použije se, pokud není vyplněn color.",
         "type": "string",
         "required": "false"
       },
@@ -385,10 +390,13 @@
     },
     "categories": {
       "size": "Velikost",
+      "sizeWithLabels": "Velikosti + label",
       "basic": "Základní",
       "icons": "Ikony",
       "states": "Stavy",
-      "darkMode": "Tmavý režim"
+      "darkMode": "Tmavý režim",
+      "colors": "Barvy",
+      "labels": "Labely"
     },
     "examples": {
       "xs": "xs",
@@ -398,7 +406,25 @@
       "xl": "xl",
       "custom": "vlastní",
       "default": "výchozí",
-      "red": "červená",
+      "primary": "primary",
+      "success": "success",
+      "warning": "warning",
+      "danger": "danger",
+      "customColor": "vlastní barva",
+      "primaryLabel": "primary s labelem",
+      "successLabel": "success s labelem",
+      "sizeWithLabels": "velikosti s labelem",
+      "labelForValue": "Label pro hodnotu",
+      "infoColor": "info",
+      "purple": "purple",
+      "teal": "teal",
+      "pink": "pink",
+      "indigo": "indigo",
+      "orange": "orange",
+      "cyan": "cyan",
+      "gold": "gold",
+      "silver": "silver",
+      "bronze": "bronze",
       "label": "label",
       "info": "Info",
       "tooltip": "tooltip",
@@ -1024,7 +1050,131 @@
       "withLabel": "Se štítkem",
       "required": "Povinné",
       "disabled": "Zakázáno",
-      "noDefault": "Bez výchozího stylu"
+      "noDefault": "Bez výchozího stylu",
+      "borderRadius": "Zaoblení",
+      "placeholder": "Placeholder"
+    }
+  },
+  "basicInfo": {
+    "title": "BasicInfo komponenta",
+    "basicInfo": {
+      "description": "Karta pro zobrazení strukturovaných informací s titulkem, podtitulkem a páry klíč-hodnota. Ideální pro zobrazení detailů, vlastností nebo metadat v přehledném layoutu."
+    },
+    "props": {
+      "title": {
+        "description": "Hlavní nadpis zobrazený v horní části karty.",
+        "type": "string",
+        "required": "false"
+      },
+      "subtitle": {
+        "description": "Sekundární text zobrazený pod titulkem.",
+        "type": "string",
+        "required": "false"
+      },
+      "items": {
+        "description": "Pole objektů s vlastnostmi label a value pro zobrazení jako řádky informací.",
+        "type": "BasicInfoItem[]",
+        "required": "false"
+      },
+      "content": {
+        "description": "Vlastní React uzel vykreslený v sekci těla.",
+        "type": "ReactNode",
+        "required": "false"
+      },
+      "actionList": {
+        "description": "Pole komponent (např. tlačítka) vykreslených v patičce.",
+        "type": "ReactNode[]",
+        "required": "false"
+      },
+      "darkMode": {
+        "description": "Používá tmavou barevnou paletu.",
+        "type": "boolean",
+        "required": "false"
+      },
+      "removeDefaultStyle": {
+        "description": "Odstraní výchozí stylování.",
+        "type": "boolean",
+        "required": "false"
+      },
+      "style": {
+        "description": "Volitelné inline styly (React.CSSProperties) sloučené s výchozími styly.",
+        "type": "React.CSSProperties",
+        "required": "false"
+      },
+      "colorScheme": {
+        "description": "Barevné schéma z palety motivu.",
+        "type": "string",
+        "required": "false"
+      },
+      "significance": {
+        "description": "Vizuální významnost: common, highlighted, distinct, subdued.",
+        "type": "string",
+        "required": "false"
+      },
+      "modern": {
+        "description": "Aktivuje moderní gradientové stylování se stíny.",
+        "type": "boolean",
+        "required": "false"
+      },
+      "width": {
+        "description": "Šířka karty (číslo jako px nebo string, např. 320 nebo \"20rem\"). Výchozí 320.",
+        "type": "string | number",
+        "required": "false"
+      },
+      "height": {
+        "description": "Výška karty (číslo jako px nebo string). Volitelné.",
+        "type": "string | number",
+        "required": "false"
+      },
+      "minWidth": {
+        "description": "Minimální šířka karty.",
+        "type": "string | number",
+        "required": "false"
+      },
+      "minHeight": {
+        "description": "Minimální výška karty. Výchozí 150 pokud není nastaveno.",
+        "type": "string | number",
+        "required": "false"
+      },
+      "noPrint": {
+        "description": "Skryje komponentu při tisku.",
+        "type": "boolean",
+        "required": "false"
+      },
+      "hidden": {
+        "description": "Pokud je true, komponenta není vykreslena.",
+        "type": "boolean",
+        "required": "false"
+      },
+      "borderRadius": {
+        "description": "Předdefinovaný token pro zaoblení rohů (xs, sm, md, lg, full).",
+        "type": "string",
+        "required": "false"
+      }
+    },
+    "categories": {
+      "basic": "Základní",
+      "withItems": "S položkami",
+      "modern": "Moderní",
+      "colorScheme": "Barevné schéma",
+      "significance": "Významnost",
+      "withActions": "S akcemi",
+      "darkMode": "Tmavý režim"
+    },
+    "examples": {
+      "simple": "Jednoduché",
+      "withItems": "S položkami",
+      "withContent": "S vlastním obsahem",
+      "complete": "Kompletní příklad",
+      "modernBasic": "Moderní",
+      "modernPrimary": "Moderní primární",
+      "modernSuccess": "Moderní úspěch",
+      "common": "Běžné",
+      "highlighted": "Zvýrazněné",
+      "dark": "Tmavé",
+      "light": "Světlé",
+      "edit": "Upravit",
+      "view": "Zobrazit"
     }
   },
   "profileCard": {
@@ -1622,7 +1772,7 @@
       "withError": "S chybou",
       "requiredWithError": "Povinný s chybou",
       "noDefault": "Bez výchozího",
-      "basicLabel": "Základní checkbox",
+      "basicLabel": "Ukázkový checkbox",
       "termsLabel": "Přijímám podmínky použití",
       "requiredLabel": "Souhlasím s podmínkami",
       "disabledLabel": "Zakázaný checkbox",
@@ -1710,13 +1860,24 @@
         "description": "Chybová zpráva zobrazená pod vstupem když je error true.",
         "type": "string",
         "required": "false"
+      },
+      "min": {
+        "description": "Minimální povolené datum (řetězec ve formátu YYYY-MM-DD nebo instance Date). Hodnoty pod minimem zobrazí chybový stav rozsahu.",
+        "type": "string | Date",
+        "required": "false"
+      },
+      "max": {
+        "description": "Maximální povolené datum (řetězec ve formátu YYYY-MM-DD nebo instance Date). Hodnoty nad maximem zobrazí chybový stav rozsahu.",
+        "type": "string | Date",
+        "required": "false"
       }
     },
     "categories": {
       "basic": "Základní",
       "states": "Stavy",
       "validation": "Validace",
-      "styling": "Styling"
+      "styling": "Styling",
+      "range": "Rozsah"
     },
     "examples": {
       "basic": "Základní",
@@ -1734,7 +1895,9 @@
       "requiredErrorLabel": "Povinné pole",
       "noDefaultLabel": "Bez výchozího stylu",
       "errorMessage": "Toto pole je povinné",
-      "requiredErrorMessage": "Prosím vyberte datum"
+      "requiredErrorMessage": "Prosím vyberte datum",
+      "minMax": "Min a max datum",
+      "minMaxLabel": "Vyberte datum mezi 2024-01-10 a 2024-01-15"
     }
   },
   "select": {
@@ -1804,7 +1967,8 @@
       "apple": "Jablko",
       "banana": "Banán",
       "orange": "Pomeranč",
-      "grape": "Hrozny"
+      "grape": "Hrozny",
+      "borderRadius": "Zaoblení"
     }
   },
   "radios": {
@@ -2148,7 +2312,7 @@
   "copyToClipboard": {
     "title": "Copy to Clipboard",
     "basicInfo": {
-      "description": "Komponenta s tlačítkem pro kopírování textu do schránky. Zobrazuje potvrzení po zkopírování."
+      "description": "Komponenta, která renderuje kliknutelnou ikonku kopírování (s volitelným labelem) pro zkopírování textu do schránky. Ikona může mít pozadí z barevného schématu nebo žádné pozadí."
     },
     "description": "Utility funkce pro kopírování textu do schránky pomocí navigator.clipboard API s fallbackem pro starší prohlížeče.",
     "success": "Text byl zkopírován do schránky.",
@@ -2162,7 +2326,8 @@
       "copyLabel": "Kopírovat",
       "customLabel": "Vlastní popisek",
       "light": "Světlý režim",
-      "noDefault": "Bez výchozího stylu"
+      "noDefault": "Bez výchozího stylu",
+      "iconOnly": "Pouze ikona"
     },
     "props": {
       "text": {
@@ -2196,13 +2361,18 @@
         "required": "false"
       },
       "removeDefaultStyle": {
-        "description": "Odstraní výchozí styl tlačítka.",
+        "description": "Odstraní výchozí layout a pozadí; vykreslí pouze syrový obsah ikony/labelu.",
         "type": "boolean",
         "required": "false"
       },
       "borderRadius": {
-        "description": "Zaoblení rohů tlačítka.",
+        "description": "Zaoblení rohů wrapperu za ikonou.",
         "type": "RadiusToken",
+        "required": "false"
+      },
+      "backgroundColorScheme": {
+        "description": "Barevné schéma pozadí pro wrapper ikony. Výchozí je \"background\"; nastavte na null pro vykreslení bez pozadí.",
+        "type": "ColorScheme | null",
         "required": "false"
       }
     },

@@ -1,11 +1,15 @@
-//@@viewOn:imports
+//!#Imports: start
 import { useState } from "react";
 import { Button, UtilityDocumentation } from "@react-ts-ui-lib/ui";
 import { generateRandomString } from "@react-ts-ui-lib/utilities";
 import { useTheme } from "../../app/context/ThemeContext";
 import { useTranslation } from "../../i18n/useTranslation";
-//@@viewOff:imports
+//!#Imports: end
 
+//!#Constants: start
+//!#Constants: end
+
+//!#Styles: start
 const inputStyle = (darkMode: boolean) => ({
   padding: "8px 12px",
   borderRadius: "4px",
@@ -13,9 +17,16 @@ const inputStyle = (darkMode: boolean) => ({
   background: darkMode ? "#2a2a2a" : "#fff",
   color: darkMode ? "#fff" : "#000",
 });
+//!#Styles: end
 
-//@@viewOn:component
+//!#helpers: start
+//!#helpers: end
+
+//!#propTypes: start
+//!#propTypes: end
+
 const GenerateRandomStringDoc = () => {
+  //!#visualComponent: start
   const { darkMode } = useTheme();
   const { t } = useTranslation();
   const [length, setLength] = useState(12);
@@ -68,6 +79,7 @@ const GenerateRandomStringDoc = () => {
     { title: t("generateRandomString.usage.basic.title"), code: t("generateRandomString.usage.basic.code") },
   ];
 
+  //!#render components: start
   return (
     <UtilityDocumentation
       title={t("generateRandomString.title")}
@@ -85,8 +97,11 @@ const GenerateRandomStringDoc = () => {
       darkMode={darkMode}
     />
   );
+  //!#render components: end
+  //!#visualComponent: end
 };
-//@@viewOff:component
 
+//!#export: start
 export { GenerateRandomStringDoc };
 export default GenerateRandomStringDoc;
+//!#export: end

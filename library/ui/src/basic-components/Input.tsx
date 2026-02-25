@@ -1,12 +1,12 @@
-//@@viewOn:imports
+//!#Imports: start
 import React from "react";
 import { getRadiusValue, type RadiusToken } from "../tools/radius";
-//@@viewOff:imports
+//!#Imports: end
 
-//@@viewOn:constants
-//@@viewOff:constants
+//!#Constants: start
+//!#Constants: end
 
-//@@viewOn:css
+//!#Styles: start
 const Css = {
   wrapper: (): React.CSSProperties => ({
     display: "flex",
@@ -37,12 +37,12 @@ const Css = {
     };
   },
 };
-//@@viewOff:css
+//!#Styles: end
 
-//@@viewOn:helpers
-//@@viewOff:helpers
+//!#helpers: start
+//!#helpers: end
 
-//@@viewOn:propTypes
+//!#propTypes: start
 export type InputProps = {
   style?: React.CSSProperties;
   removeDefaultStyle?: boolean;
@@ -74,9 +74,9 @@ export const INPUT_PROP_NAMES = [
   "name",
   "borderRadius",
 ] as const;
-//@@viewOff:propTypes
+//!#propTypes: end
 
-export const Input: React.FC<InputProps> = ({
+const Input: React.FC<InputProps> = ({
   style,
   removeDefaultStyle,
   placeholder,
@@ -91,11 +91,9 @@ export const Input: React.FC<InputProps> = ({
   name,
   borderRadius = "md",
 }) => {
-  //@@viewOn:private
+  //!#visualComponent: start
   const borderRadiusValue = getRadiusValue(borderRadius);
-  //@@viewOff:private
-
-  //@@viewOn:render
+  //!#render components: start
   return (
     <div style={{ ...Css.wrapper(), ...style }}>
       {label && (
@@ -119,5 +117,11 @@ export const Input: React.FC<InputProps> = ({
       />
     </div>
   );
-  //@@viewOff:render
+  //!#render components: end
+  //!#visualComponent: end
 };
+
+//!#export: start
+export { Input };
+export default Input;
+//!#export: end
