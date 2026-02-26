@@ -502,6 +502,41 @@ const ButtonDoc = () => {
         },
       ],
     },
+    {
+      category: t("button.categories.customWidth"),
+      itemList: [
+        {
+          label: t("button.examples.width100"),
+          components: (
+            <Button
+              label={t("button.examples.width100")}
+              width="100%"
+              colorScheme="primary"
+            />
+          ),
+        },
+        {
+          label: t("button.examples.width240"),
+          components: (
+            <Button
+              label={t("button.examples.width240")}
+              width="240px"
+              colorScheme="primary"
+            />
+          ),
+        },
+        {
+          label: t("button.examples.fitContent"),
+          components: (
+            <Button
+              label={t("button.examples.fitContent")}
+              width="fit-content"
+              colorScheme="primary"
+            />
+          ),
+        },
+      ],
+    },
   ];
   //!#render components: start
   return (
@@ -515,15 +550,15 @@ const ButtonDoc = () => {
           exampleCode: BUTTON_EXAMPLE_CODE,
           preview: (
             <span style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
-            <Button label={t("button.examples.primary")} colorScheme="primary" darkMode={darkMode} />
-            <Button
-              label={t("button.examples.primary")}
-              colorScheme="success"
-              darkMode={darkMode}
-              significance="highlighted"
-              modern
+              <Button label={t("button.examples.primary")} colorScheme="primary" darkMode={darkMode} />
+              <Button
+                label={t("button.examples.primary")}
+                colorScheme="success"
+                darkMode={darkMode}
+                significance="highlighted"
+                modern
 
-            />
+              />
             </span>
           ),
         }}

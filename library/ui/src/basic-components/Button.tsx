@@ -115,6 +115,7 @@ export type ButtonProps = {
   noPrint?: boolean;
   modern?: boolean;
   hidden?: boolean;
+  width?: string;
 };
 
 // Const array for runtime prop extraction in Documentation
@@ -138,7 +139,8 @@ export const BUTTON_PROP_NAMES = [
   "isPending",
   "noPrint",
   "modern",
-  "hidden"
+  "hidden",
+  "width"
 ] as const;
 //!#propTypes: end
 
@@ -161,7 +163,8 @@ const Button = ({
   darkMode = true,
   noPrint = false,
   modern = false,
-  hidden = false
+  hidden = false,
+  width
 }: ButtonProps) => {
   //!#visualComponent: start
   const [hover, setHover] = useState(false);
@@ -217,7 +220,7 @@ const Button = ({
     buttonSize.padding,
     buttonSize.fontSize,
     buttonSize.height,
-    buttonSize.width,
+    width ?? buttonSize.width,
     useModernGradient,
     gradientBackground,
     gradientHoverBackground,

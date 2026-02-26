@@ -253,6 +253,11 @@
         "description": "Skryje komponentu, pokud je nastavena na true (nevykreslí nic).",
         "type": "boolean",
         "required": "false"
+      },
+      "width": {
+        "description": "Přímá CSS šířka (např. '100%', '240px'). Pokud je vyplněna, má přednost před výchozí šířkou založenou na velikosti.",
+        "type": "string",
+        "required": "false"
       }
     },
     "categories": {
@@ -266,7 +271,8 @@
       "significance": "Významnost",
       "size": "Velikost",
       "borderRadius": "Zaoblení & tisk",
-      "tooltip": "Tooltip"
+      "tooltip": "Tooltip",
+      "customWidth": "Vlastní šířka"
     },
     "examples": {
       "primary": "Primary",
@@ -323,7 +329,10 @@
       "radiusFull": "Full",
       "tooltip": "tooltip",
       "hoverMe": "Najetí",
-      "nativeTooltip": "Nativní tooltip"
+      "nativeTooltip": "Nativní tooltip",
+      "width100": "Šířka 100%",
+      "width240": "Šířka 240px",
+      "fitContent": "Fit content"
     }
   },
   "icon": {
