@@ -253,6 +253,11 @@
         "description": "Hides the component when true (renders nothing).",
         "type": "boolean",
         "required": "false"
+      },
+      "width": {
+        "description": "Explicit CSS width (e.g., '100%', '240px'). When provided, it overrides default size-based width.",
+        "type": "string",
+        "required": "false"
       }
     },
     "categories": {
@@ -266,7 +271,8 @@
       "significance": "Significance",
       "size": "Size",
       "borderRadius": "Border radius & print",
-      "tooltip": "Tooltip"
+      "tooltip": "Tooltip",
+      "customWidth": "Custom width"
     },
     "examples": {
       "primary": "Primary",
@@ -323,7 +329,10 @@
       "radiusFull": "Full",
       "tooltip": "tooltip",
       "hoverMe": "Hover me",
-      "nativeTooltip": "Native tooltip"
+      "nativeTooltip": "Native tooltip",
+      "width100": "Width 100%",
+      "width240": "Width 240px",
+      "fitContent": "Fit content"
     }
   },
   "icon": {
