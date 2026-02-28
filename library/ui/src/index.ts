@@ -30,6 +30,7 @@ export { Radios } from "./basic-components/Radios";
 export { Label } from "./basic-components/Label";
 export { Popover } from "./basic-components/Popover";
 export { CopyToClipboard } from "./basic-components/CopyToClipboard";
+export { Table } from "./table/Table";
 export { UnderConstruction } from "./app-components/UnderConstruction";
 export { NotFoundRoute } from "./app-components/NotFoundRoute";
 
@@ -91,3 +92,4 @@ export type { LabelProps } from "./basic-components/Label";
 export type { PopoverProps } from "./basic-components/Popover";
 export type { CopyToClipboardProps } from "./basic-components/CopyToClipboard";
 export type { BreadcrumbProps } from "./basic-components/Breadcrumb";
+export type { TableProps } from "./table/Table";

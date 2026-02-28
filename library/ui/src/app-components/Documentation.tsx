@@ -391,7 +391,7 @@ const Documentation = ({
         codeActive={activeTab}
         onChange={(code) => setActiveTab(code as string)}
         contentStyle={{ paddingTop: 0 }}
-        borderRadius="sm"
+        borderRadius="none"
       />
     </div>
   );

@@ -751,6 +751,12 @@
       "fromCamelCase": "From Camel Case"
     }
   },
+  "table": {
+    "title": "Table Component",
+    "basicInfo": {
+      "description": "Table component for displaying tabular data. More options and documentation will be added later."
+    }
+  },
   "box": {
     "title": "Box Component",
     "basicInfo": {

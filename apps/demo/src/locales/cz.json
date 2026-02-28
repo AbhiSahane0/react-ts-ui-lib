@@ -751,6 +751,12 @@
       "fromCamelCase": "From Camel Case"
     }
   },
+  "table": {
+    "title": "Komponenta Tabulka",
+    "basicInfo": {
+      "description": "Komponenta tabulky pro zobrazení tabulkových dat. Další možnosti a dokumentace budou doplněny později."
+    }
+  },
   "box": {
     "title": "Box komponenta",
     "basicInfo": {
