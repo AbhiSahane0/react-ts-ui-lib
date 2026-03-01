@@ -40,6 +40,13 @@ const SelectDoc = () => {
     { value: "grape", label: t("select.examples.grape") },
   ];
 
+  const fruitItemsWithIcons: SelectItem[] = [
+    { value: "apple", label: t("select.examples.apple"), icon: "mdi-apple" },
+    { value: "banana", label: t("select.examples.banana"), icon: "mdi-fruit-pear" },
+    { value: "orange", label: t("select.examples.orange"), icon: "mdi-fruit-watermelon" },
+    { value: "grape", label: t("select.examples.grape"), icon: "mdi-fruit-grapes" },
+  ];
+
   const [basicValue, setBasicValue] = useState<string | number>("");
 
   const componentList = [
@@ -118,7 +125,24 @@ const SelectDoc = () => {
         },
       ],
     },
+    {
+      category: t("select.categories.icons"),
+      itemList: [
+        {
+          label: t("select.examples.withIcons"),
+          components: (
+            <Select
+              itemList={fruitItemsWithIcons}
+              value={basicValue}
+              onChange={(e) => setBasicValue(e.target.value)}
+              darkMode={darkMode}
+            />
+          ),
+        },
+      ],
+    },
   ];
+
   //!#visualComponent: end
 
   const pageTitle = t("select.title");

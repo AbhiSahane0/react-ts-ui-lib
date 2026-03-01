@@ -2056,11 +2056,17 @@
         "description": "HTML id attribute for label association.",
         "type": "string",
         "required": "false"
+      },
+      "iconLeft": {
+        "description": "Optional icon (MDI icon name or ReactNode) displayed on the left side of each item and the selected value.",
+        "type": "string | ReactNode",
+        "required": "false"
       }
     },
     "categories": {
       "basic": "Basic",
-      "styling": "Styling"
+      "styling": "Styling",
+      "icons": "Icons"
     },
     "examples": {
       "basic": "Basic",
@@ -2069,7 +2075,8 @@
       "banana": "Banana",
       "orange": "Orange",
       "grape": "Grape",
-      "borderRadius": "Border radius"
+      "borderRadius": "Border radius",
+      "withIcons": "With icons"
     }
   },
   "radios": {
