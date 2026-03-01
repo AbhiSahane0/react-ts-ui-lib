@@ -24,7 +24,7 @@ const Css = {
     };
   },
 
-  optionRow: (removeDefaultStyle?: boolean): React.CSSProperties => {
+  optionRow: (removeDefaultStyle?: boolean, readOnly?: boolean): React.CSSProperties => {
     if (removeDefaultStyle) {
       return {};
     }
@@ -33,11 +33,17 @@ const Css = {
       display: "flex",
       alignItems: "center",
       gap: "0.5rem",
-      cursor: "pointer",
+      cursor: readOnly ? "default" : "pointer",
+      pointerEvents: readOnly ? "none" : "auto",
+      opacity: readOnly ? 0.8 : 1,
     };
   },
 
-  radio: (removeDefaultStyle?: boolean, darkMode = true): React.CSSProperties => {
+  radio: (
+    removeDefaultStyle?: boolean,
+    darkMode = true,
+    readOnly?: boolean,
+  ): React.CSSProperties => {
     if (removeDefaultStyle) {
       return {};
     }
@@ -48,11 +54,15 @@ const Css = {
       width: "1.125rem",
       height: "1.125rem",
       accentColor: scheme.color,
-      cursor: "pointer",
+      cursor: readOnly ? "default" : "pointer",
     };
   },
 
-  labelText: (removeDefaultStyle?: boolean, darkMode = true): React.CSSProperties => {
+  labelText: (
+    removeDefaultStyle?: boolean,
+    darkMode = true,
+    readOnly?: boolean,
+  ): React.CSSProperties => {
     if (removeDefaultStyle) {
       return {};
     }
@@ -62,7 +72,7 @@ const Css = {
     return {
       fontSize: "1rem",
       lineHeight: 1.5,
-      color: scheme.textColor,
+      color: readOnly ? (darkMode ? "#a0a0a0" : "#707070") : scheme.textColor,
       fontFamily: "inherit",
     };
   },
@@ -83,6 +93,7 @@ export type RadiosProps = {
   noPrint?: boolean;
   hidden?: boolean;
   removeDefaultStyle?: boolean;
+  readOnly?: boolean;
   darkMode?: boolean;
   itemList: RadiosItem[];
   value?: string | number;
@@ -100,6 +111,7 @@ export const RADIOS_PROP_NAMES = [
   "noPrint",
   "hidden",
   "removeDefaultStyle",
+  "readOnly",
   "darkMode",
   "itemList",
   "value",
@@ -117,6 +129,7 @@ const Radios = ({
   noPrint = false,
   hidden = false,
   removeDefaultStyle = false,
+  readOnly = false,
   darkMode = true,
   itemList,
   value = "",
@@ -137,6 +150,7 @@ const Radios = ({
       className={noPrint ? "no-print" : undefined}
       style={{ ...Css.wrapper(removeDefaultStyle, direction), ...style }}
       role="radiogroup"
+      aria-readonly={readOnly}
     >
       {itemList.map((item) => {
         const itemValueStr = String(item.value);
@@ -146,7 +160,7 @@ const Radios = ({
         return (
           <label
             key={itemValueStr}
-            style={Css.optionRow(removeDefaultStyle)}
+            style={Css.optionRow(removeDefaultStyle, readOnly)}
             htmlFor={inputId}
           >
             <input
@@ -155,12 +169,14 @@ const Radios = ({
               name={name}
               value={itemValueStr}
               checked={isChecked}
-              onChange={onChange}
+              readOnly={readOnly}
+              onChange={readOnly ? undefined : onChange}
               onFocus={onFocus}
               onBlur={onBlur}
-              style={Css.radio(removeDefaultStyle, darkMode)}
+              style={Css.radio(removeDefaultStyle, darkMode, readOnly)}
+              onClick={readOnly ? (e) => e.preventDefault() : undefined}
             />
-            <span style={Css.labelText(removeDefaultStyle, darkMode)}>
+            <span style={Css.labelText(removeDefaultStyle, darkMode, readOnly)}>
               {typeof item.label === "string" ? item.label : String(item.label)}
             </span>
           </label>

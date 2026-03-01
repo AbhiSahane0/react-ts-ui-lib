@@ -2087,6 +2087,11 @@
         "type": "boolean",
         "required": "false"
       },
+      "readOnly": {
+        "description": "If true, users cannot change the selection via UI interactions.",
+        "type": "boolean",
+        "required": "false"
+      },
       "removeDefaultStyle": {
         "description": "Disables built-in styling and leaves only raw elements for full customization.",
         "type": "boolean",
@@ -2140,12 +2145,14 @@
     },
     "categories": {
       "basic": "Basic",
+      "states": "States",
       "styling": "Styling"
     },
     "examples": {
       "basic": "Basic",
       "directionRow": "Direction row",
       "noDefault": "No default",
+      "readOnly": "Read-only state",
       "apple": "Apple",
       "banana": "Banana",
       "orange": "Orange",

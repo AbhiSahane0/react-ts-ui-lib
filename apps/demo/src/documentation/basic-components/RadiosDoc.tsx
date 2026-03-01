@@ -79,6 +79,23 @@ const RadiosDoc = () => {
       ],
     },
     {
+      category: t("radios.categories.states"),
+      itemList: [
+        {
+          label: t("radios.examples.readOnly"),
+          components: (
+            <Radios
+              name="radios-readonly"
+              itemList={fruitItems}
+              value="apple"
+              readOnly
+              darkMode={darkMode}
+            />
+          ),
+        },
+      ],
+    },
+    {
       category: t("radios.categories.styling"),
       itemList: [
         {
