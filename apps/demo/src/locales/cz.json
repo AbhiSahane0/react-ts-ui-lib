@@ -2050,11 +2050,17 @@
         "description": "HTML id atribut pro asociaci s label.",
         "type": "string",
         "required": "false"
+      },
+      "iconLeft": {
+        "description": "Volitelná ikona (název MDI ikony nebo ReactNode) zobrazená na levé straně každé položky a vybrané hodnoty.",
+        "type": "string | ReactNode",
+        "required": "false"
       }
     },
     "categories": {
       "basic": "Základní",
-      "styling": "Styling"
+      "styling": "Styling",
+      "icons": "Ikony"
     },
     "examples": {
       "basic": "Základní",
@@ -2063,7 +2069,8 @@
       "banana": "Banán",
       "orange": "Pomeranč",
       "grape": "Hrozny",
-      "borderRadius": "Zaoblení"
+      "borderRadius": "Zaoblení",
+      "withIcons": "S ikonami"
     }
   },
   "radios": {
