@@ -2109,6 +2109,11 @@
         "type": "boolean",
         "required": "false"
       },
+      "readOnly": {
+        "description": "Pokud je true, uživatel nemůže měnit výběr pomocí UI interakcí.",
+        "type": "boolean",
+        "required": "false"
+      },
       "removeDefaultStyle": {
         "description": "Vypne vestavěné styly a ponechá pouze surové elementy pro plnou přizpůsobitelnost.",
         "type": "boolean",
@@ -2162,12 +2167,14 @@
     },
     "categories": {
       "basic": "Základní",
+      "states": "Stavy",
       "styling": "Styling"
     },
     "examples": {
       "basic": "Základní",
       "directionRow": "Směr řádek",
       "noDefault": "Bez výchozího",
+      "readOnly": "Stav pouze pro čtení",
       "apple": "Jablko",
       "banana": "Banán",
       "orange": "Pomeranč",
