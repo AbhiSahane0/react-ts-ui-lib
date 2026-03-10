@@ -128,6 +128,31 @@ const PendingDoc = () => {
         },
       ],
     },
+    {
+      category: t("pending.categories.image"),
+      itemList: [
+        {
+          label: t("pending.examples.imageCircular"),
+          components: (
+            <UiPending
+              type="circular"
+              size="lg"
+              image="https://dummyimage.com/80x40/000/fff&text=Logo"
+            />
+          ),
+        },
+        {
+          label: t("pending.examples.imageHorizontal"),
+          components: (
+            <UiPending
+              type="horizontal"
+              size="lg"
+              image="https://dummyimage.com/80x40/000/fff&text=Logo"
+            />
+          ),
+        },
+      ],
+    },
   ];
   //!#visualComponent: end
 

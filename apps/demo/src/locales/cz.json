@@ -486,6 +486,11 @@
         "description": "Rychlost animace (násobek výchozí rychlosti).",
         "type": "number",
         "required": "false"
+      },
+      "image": {
+        "description": "U kruhového pendingu se obrázek zobrazí uprostřed indikátoru, u horizontální varianty nad pruhem.",
+        "type": "string",
+        "required": "false"
       }
     },
     "categories": {
@@ -493,7 +498,8 @@
       "size": "Velikost",
       "colorScheme": "Barevné schéma",
       "darkMode": "Tmavý režim",
-      "animationSpeed": "Rychlost animace"
+      "animationSpeed": "Rychlost animace",
+      "image": "Obrázek"
     },
     "examples": {
       "circular": "kruhový",
@@ -511,7 +517,9 @@
       "dark": "tmavý",
       "light": "světlý",
       "slow": "Pomalé",
-      "fast": "Rychlé"
+      "fast": "Rychlé",
+      "imageCircular": "s obrázkem (kruh)",
+      "imageHorizontal": "s obrázkem (proužek)"
     }
   },
   "navbar": {

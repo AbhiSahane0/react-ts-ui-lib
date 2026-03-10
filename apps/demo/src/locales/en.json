@@ -498,7 +498,8 @@
       "size": "Size",
       "colorScheme": "Color Scheme",
       "darkMode": "Dark mode",
-      "animationSpeed": "Animation Speed"
+      "animationSpeed": "Animation Speed",
+      "image": "Image"
     },
     "examples": {
       "circular": "circular",
@@ -516,7 +517,9 @@
       "dark": "dark",
       "light": "light",
       "slow": "Slow",
-      "fast": "Fast"
+      "fast": "Fast",
+      "imageCircular": "with image (circular)",
+      "imageHorizontal": "with image (horizontal)"
     }
   },
   "navbar": {
